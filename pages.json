@@ -1,0 +1,158 @@
+{
+	"pages": [
+		{
+			"path": "pages/login/login",
+			"style":{
+				"navigationBarTitleText":"登录"
+			}
+		},{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},{
+            "path" : "pages/preApproval/preIndex",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "登记预审"
+            }
+        },{
+            "path" : "pages/preApproval/preList",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "预审登记列表",
+                "enablePullDownRefresh": false
+            }
+        },{
+            "path" : "pages/preApproval/preDetail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "预审登记详情",
+                "enablePullDownRefresh": false
+            }
+        },{
+            "path" : "pages/preApproval/preInfo/infoBase",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "预审-材料-基本信息",
+                "enablePullDownRefresh": false
+            }
+        },{
+            "path" : "pages/establish/estIndex",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "设立登记",
+                "enablePullDownRefresh": false
+            }
+        },{
+		    "path" : "pages/establish/estList",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "设立登记列表"
+		    }
+		},{
+            "path" : "pages/establish/estDetail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "设立登记详情",
+                "enablePullDownRefresh": false
+            }
+        },{
+		    "path" : "pages/establish/estInfo/infoBase",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "设立-申请书-基本信息",
+		        "enablePullDownRefresh": false
+		    }
+		},{
+            "path" : "pages/modify/modIndex",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "变更登记",
+                "enablePullDownRefresh": false
+            }
+        },{
+            "path" : "pages/modify/modList",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "变更登记列表",
+                "enablePullDownRefresh": false
+            }
+        },{
+            "path" : "pages/modify/modDetail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "变更登记详情",
+                "enablePullDownRefresh": false
+            }
+        },{
+            "path" : "pages/modify/modInfo/infoChange",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "变更-申请书-变更事项",
+                "enablePullDownRefresh": false
+            }
+            
+        },{
+            "path" : "pages/nullify/nulIndex",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "注销登记",
+                "enablePullDownRefresh": false
+            }
+        },{
+            "path" : "pages/nullify/nulList",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "注销登记列表",
+                "enablePullDownRefresh": false
+            }
+        },{
+            "path" : "pages/nullify/nulDetail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "注销登记详情",
+                "enablePullDownRefresh": false
+            }
+        }
+        ,{
+            "path" : "pages/nullify/nulInfo/infoNullify",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "注销-申请书-注销信息",
+                "enablePullDownRefresh": false
+            }
+        }
+        ,{
+            "path" : "pages/formDemo/formDemo",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "表单校验演示页面",
+                "enablePullDownRefresh": false
+            }
+        }
+    ],
+
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "济南工商行政许可",
+		"navigationBarBackgroundColor": "#007eff",
+		"backgroundColor": "#FFFFFF",
+		"navigationStyle": "custom"
+	},
+	"condition" : { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [
+			{
+				"name": "表单编辑demo", //模式名称
+				"path": "pages/formDemo/formDemo", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			},
+			{
+				"name": "预审登记列表", //模式名称
+				"path": "pages/preApproval/preList/preList", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			}
+		]
+	}
+}
