@@ -3,41 +3,32 @@
 		<!-- 导航栏 -->
 		<cu-custom class="custom-nav" bgColor="bg-gradual-blue" :isBack="true">
 		    <block slot="backText">返回</block>
-		    <block slot="content">变更登记详情</block>
-			<view slot="right" v-if="currentNav==0&&childrenHasSave" class="ope flex align-center" @click="saveForm"><text class="icon fa fa-save" @click="saveForm"></text>保存</view>
+		    <block slot="content">预审-注销登记</block>
+			<view slot="right" v-if="currentNav==0&&childrenHasSave" class="ope flex align-center" @click="saveForm"><text class="icon fa fa-save"></text>保存</view>
 		</cu-custom>
 		
 		<!-- 选项卡 -->
-		<com-scroll-tab :dataList="tabs" v-model="currentNav" activeColor="#0b8ffe">
-		</com-scroll-tab>
+		<com-scroll-tab :dataList="tabs" v-model="currentNav" activeColor="#0b8ffe"></com-scroll-tab>
 		
 		<!-- 主体内容 -->
 		<view class="main-con">
-			<!-- =========申请书 ===========-->
+			<!-- =========企业信息 ===========-->
 			<view class="con-item" v-show="currentNav==0">
-				<!-- 申请书菜单 -->
+				<!-- 企业信息菜单 -->
 				<view class="apply-materials">
 					<com-scroll-tab :dataList="menus" v-model="currentMenu" template="block" isShowMore>
 					</com-scroll-tab>
 				</view>
-				<!-- 变更事项 -->
+				<!-- 注销信息 -->
 				<scroll-view v-show="currentMenu==0" class="scroll-box" scroll-y>
-					<info-change hideNav ref="info0"></info-change>
-				</scroll-view>
-				<!-- 法定代表人 -->
-				<scroll-view v-show="currentMenu==1" class="scroll-box" scroll-y>
-					<info-legal hideNav ref="info1"></info-legal>
-				</scroll-view>
-				<!-- 董事、监事、经理信息 -->
-				<scroll-view v-show="currentMenu==2" class="scroll-box" scroll-y>
-					董事、监事、经理信息
+					<info-nullify hideNav ref="info0"></info-nullify>
 				</scroll-view>
 				<!-- 授权委托 -->
-				<scroll-view v-show="currentMenu==3" class="scroll-box" scroll-y>
+				<scroll-view v-show="currentMenu==1" class="scroll-box" scroll-y>
 					授权委托
 				</scroll-view>
 				<!-- 提交材料 -->
-				<scroll-view v-show="currentMenu==4" class="scroll-box" scroll-y>
+				<scroll-view v-show="currentMenu==2" class="scroll-box" scroll-y>
 					提交材料
 				</scroll-view>
 			</view>
@@ -80,7 +71,7 @@
 							<button class="cu-btn bg-blue shadow">不予受理</button>
 							<button class="cu-btn bg-red shadow">名称驳回</button>
 						</view>
-					</view>	
+					</view>
 					<!-- 意见列表 -->
 					<view class="suggest-list">
 						<view class="cu-bar">
@@ -117,23 +108,23 @@
 
 <script>
 	import API from "@/mock/mock.js"
-	import infoChange from '@/pages/modify/modInfo/infoChange'
-	import infoLegal from '@/pages/modify/modInfo/infoLegal'
+	
+	import infoNullify from '@/pages/nullify/nulInfo/infoNullify'
 	import MescrollMixin from "@/components/com-mescroll-view/js/mescroll-mixins.js";
 	export default {
 		mixins: [MescrollMixin],
-		components:{infoChange,infoLegal},
+		components:{infoNullify},
 		data() {
 			return {
+				/* 字典 */
 				enums:{
 					agree:[{value:'0',name:'同意'},{value:'1',name:'驳回'}]
 				},
 				currentNav:0,
-				currentMenu:1,
+				currentMenu:0,
 				childrenHasSave:false,
-				tabs:['申请书','办理意见'],
-				menus:['变更事项','法定代表人','董事、监事、经理信息','授权委托','提交材料'],
-				picker: ['同意', '驳回'],
+				tabs:['企业信息','办理意见'],
+				menus:['注销信息','授权委托','提交材料'],
 				infoSuggest:{
 					member:'王晓静',
 					date:this.getDate(),
@@ -162,6 +153,11 @@
 		mounted() {
 			this.hasSave()
 		},
+		watch:{
+			currentMenu(){
+				this.hasSave()
+			}
+		},
 		methods: {
 			/* 判断有子组件无保存 */
 			hasSave(){
@@ -169,7 +165,6 @@
 				if (!childRef){
 					return this.childrenHasSave=false
 				}
-				console.log(this.$refs)
 				if(childRef.save){
 					this.childrenHasSave=true
 				}else{

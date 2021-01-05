@@ -13,7 +13,7 @@
 			<!-- 列表 -->
 			<com-mescroll-view ref="mescrollRef" @init="mescrollInit" :fixed="false" height="auto" :down="downOption" :up="upOption" @down="downCallback" @up="upCallback">
 				<view class="list">
-					<view class="list-item" v-for="(v,i) in list" :key="i" @click="goDetail(v,'/pages/preApproval/preDetail')">
+					<view class="list-item" v-for="(v,i) in list" :key="i" @click="goDetail(v)">
 						<view class="header flex justify-between align-center solid-bottom">
 							<view class="left text-cut">{{v.name}}</view>
 							<view class="right cu-tag bg-green radius" v-if="v.type==0">设立</view>
@@ -178,7 +178,18 @@
 				this.skeletonShow=false;
 			},
 			/* 跳转详情 */
-			goDetail(item,url){
+			goDetail(item){
+				let url='';
+				switch(item.type){
+					case 0:
+						url='/pages/preApproval/preDetailEst/preDetailEst';
+						break;
+					case 1:
+						url='/pages/preApproval/preDetailMod/preDetailMod';
+						break;
+					case 2:
+						url='/pages/preApproval/preDetailNul/preDetailNul';
+				};
 				if(item.worker){
 					uni.showModal({
 						title:'提醒',

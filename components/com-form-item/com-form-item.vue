@@ -163,7 +163,7 @@
 	.com-form-group .star{
 		position: relative;
 	}
-	.com-form-group .star::before{
+	.com-form-group .star::after{
 		content: '*';font-family:uniicons;
 		font-weight:normal;
 		color: #f00;line-height: 1.4;
@@ -185,14 +185,14 @@
 	.com-form-group .form-item .title-group .title{
 		flex: 1;padding-right: 0;font-size: 30rpx;color:#888;line-height: 1.4;
 	}
-	.com-form-group .form-item .title-group .title.showAsteriskRect::before {
+	.com-form-group .form-item .title-group .title.showAsteriskRect::after {
 		content: '';
 		font-family:uniicons;
 		font-weight:normal;
 		color: #f00;line-height: 1.4;
 	}
-	.com-form-group .form-item .title-group .title.isRequired::before {
-		content: '*';margin-right: 10rpx;
+	.com-form-group .form-item .title-group .title.isRequired::after {
+		content: '*';margin-left: 10rpx;
 	}
 	
 	.com-form-group .form-item .title-group .title-left{
@@ -270,6 +270,13 @@
 		/* picker选择器 */
 		.picker{
 			padding: 8px 0;line-height: 1.6;
+		}
+		.picker-group{
+			width: 100%;
+			margin: 0 -20rpx;
+			.picker{
+				margin: 0 20rpx;
+			}
 		}
 		/* 多行 */
 		.block-group{

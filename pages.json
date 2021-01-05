@@ -24,13 +24,6 @@
                 "enablePullDownRefresh": false
             }
         },{
-            "path" : "pages/preApproval/preDetail",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "预审登记详情",
-                "enablePullDownRefresh": false
-            }
-        },{
             "path" : "pages/preApproval/preInfo/infoBase",
             "style" :                                                                                    
             {
@@ -89,7 +82,7 @@
             "path" : "pages/modify/modInfo/infoChange",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "变更-申请书-变更事项",
+                "navigationBarTitleText": "变更登记-变更事项",
                 "enablePullDownRefresh": false
             }
             
@@ -119,7 +112,7 @@
             "path" : "pages/nullify/nulInfo/infoNullify",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "注销-申请书-注销信息",
+                "navigationBarTitleText": "注销登记-注销信息",
                 "enablePullDownRefresh": false
             }
         }
@@ -130,6 +123,60 @@
                 "navigationBarTitleText": "表单校验演示页面",
                 "enablePullDownRefresh": false
             }
+        }
+        ,{
+            "path" : "pages/modify/modInfo/infoLegal",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "变更登记-法定代表人",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/modify/modInfo/infoLiaison",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "变更登记-联络员信息",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/modify/modInfo/infoAuthor",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "变更登记-授权委托",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/preApproval/preDetailEst/preDetailEst",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "预审-设立详情",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/preApproval/preDetailMod/preDetailMod",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "预审-变更详情",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/preApproval/preDetailNul/preDetailNul",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "预审-注销详情",
+                "enablePullDownRefresh": false
+            }
+            
         }
     ],
 

@@ -3,7 +3,7 @@
 		<!-- 导航栏 -->
 		<cu-custom v-if="!hideNav" class="custom-nav" bgColor="bg-gradual-blue" :isBack="true">
 		    <block slot="backText">返回</block>
-		    <block slot="content">预审-材料-基本信息</block>
+		    <block slot="content">设立材料-基本信息</block>
 			<view slot="right" class="ope flex align-center" @click="save"><text class="icon fa fa-save"></text>保存</view>
 		</cu-custom>
 		<!-- 主体区域 -->
