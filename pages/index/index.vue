@@ -121,7 +121,8 @@
 <style lang="scss">
 page{background:#ffffff}
 .banner{
-	height: 600rpx;position: relative;
+	position: relative;
+	padding-bottom: 60rpx;
 	margin-bottom: 80rpx;
 	text-align: center;padding-top: 140rpx;
 	.state{

@@ -76,7 +76,7 @@
 				// 表单验证
 				rules:{
 					name:[
-						{required: true,message: '法人姓名不能为空'}
+						{required: true,message: '姓名不能为空'}
 					],
 					mobile:[
 						{required: true,message: '移动电话不能为空'}

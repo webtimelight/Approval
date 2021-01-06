@@ -59,21 +59,25 @@ export default {
 @font-face {font-family: uniicons;src: url('~@/static/font/uni.ttf')}
 /* #endif */
 
-/* 全局设置字体 */
+/* 全局设置 */
 page{background: #f6f6f6;font-family: geometr,uniicons}
 .status_bar {height: var(--status-bar-height);width: 100%;}
+/*适配*/
+@media screen and (min-width: 768px)  {
+	.cu-bar.fixed, .nav.fixed{position: absolute;}
+	body{width: 768px;margin: 0 auto;}
+	body{background: #000!important;}
+}
 /* 动画 */
 @keyframes show {
 	0% {
 		transform: translateY(-50px) scale(0.5);
 		opacity:0;
 	}
-
 	60% {
 		transform: translateY(40rpx)  scale(0.8);
 		opacity:1
 	}
-
 	100% {
 		transform: translateY(0px)  scale(1);
 		opacity:1

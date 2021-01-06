@@ -40,7 +40,7 @@
 		<!-- 筛选 -->
 		<view class="cu-modal drawer-modal justify-end" :class="drawerShow?'show':''" @click="hideDrawer">
 			<view class="cu-dialog basis-lg" 
-			:style="[{top:CustomBar+'px',height:'calc(100vh - ' + CustomBar + 'px)'}]" 
+			:style="{top:CustomBar+'px',height:'calc(100vh - ' + CustomBar + 'px)'}" 
 			@click.stop="" >
 				<!-- 查询表单 -->
 				<view class="query-area flex flex-column">

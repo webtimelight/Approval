@@ -24,13 +24,6 @@
                 "enablePullDownRefresh": false
             }
         },{
-            "path" : "pages/preApproval/preInfo/infoBase",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "预审-材料-基本信息",
-                "enablePullDownRefresh": false
-            }
-        },{
             "path" : "pages/establish/estIndex",
             "style" :                                                                                    
             {
@@ -185,7 +178,10 @@
 		"navigationBarTitleText": "济南工商行政许可",
 		"navigationBarBackgroundColor": "#007eff",
 		"backgroundColor": "#FFFFFF",
-		"navigationStyle": "custom"
+		"navigationStyle": "custom",
+		"rpxCalcMaxDeviceWidth": 375,
+		"rpxCalcBaseDeviceWidth": 375,
+		"maxWidth":768
 	},
 	"condition" : { //模式配置，仅开发期间生效
 		"current": 0, //当前激活的模式(list 的索引项)

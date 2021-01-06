@@ -8,8 +8,7 @@
 		</cu-custom>
 		
 		<!-- 选项卡 -->
-		<com-scroll-tab :dataList="tabs" v-model="currentNav" activeColor="#0b8ffe">
-		</com-scroll-tab>
+		<com-scroll-tab :dataList="tabs" v-model="currentNav" activeColor="#0b8ffe"></com-scroll-tab>
 		
 		<!-- 主体内容 -->
 		<view class="main-con">
@@ -17,8 +16,7 @@
 			<view class="con-item" v-show="currentNav==0">
 				<!-- 企业信息菜单 -->
 				<view class="apply-materials">
-					<com-scroll-tab :dataList="menus" v-model="currentMenu" template="block" isShowMore>
-					</com-scroll-tab>
+					<com-scroll-tab :dataList="menus" v-model="currentMenu" template="block" isShowMore></com-scroll-tab>
 				</view>
 				<!-- 变更事项 -->
 				<scroll-view v-show="currentMenu==0" class="scroll-box" scroll-y>
@@ -28,17 +26,29 @@
 				<scroll-view v-show="currentMenu==1" class="scroll-box" scroll-y>
 					<info-legal hideNav ref="info1"></info-legal>
 				</scroll-view>
-				<!-- 董事、监事、经理信息 -->
+				<!-- 人员信息 -->
 				<scroll-view v-show="currentMenu==2" class="scroll-box" scroll-y>
-					董事、监事、经理信息
+					人员信息
+				</scroll-view>
+				<!-- 联络员信息 -->
+				<scroll-view v-show="currentMenu==3" class="scroll-box" scroll-y>
+					<info-liaison hideNav ref="info3"></info-liaison>
+				</scroll-view>
+				<!-- 许可信息 -->
+				<scroll-view v-show="currentMenu==4" class="scroll-box" scroll-y>
+					许可信息
 				</scroll-view>
 				<!-- 授权委托 -->
-				<scroll-view v-show="currentMenu==3" class="scroll-box" scroll-y>
+				<scroll-view v-show="currentMenu==5" class="scroll-box" scroll-y>
 					授权委托
 				</scroll-view>
-				<!-- 提交材料 -->
-				<scroll-view v-show="currentMenu==4" class="scroll-box" scroll-y>
-					提交材料
+				<!-- 多证合一 -->
+				<scroll-view v-show="currentMenu==6" class="scroll-box" scroll-y>
+					多证合一
+				</scroll-view>
+				<!-- 附件信息 -->
+				<scroll-view v-show="currentMenu==7" class="scroll-box" scroll-y>
+					附件信息
 				</scroll-view>
 			</view>
 			<!-- ============办理意见============ -->
@@ -133,7 +143,7 @@
 				currentMenu:1,
 				childrenHasSave:false,
 				tabs:['企业信息','办理意见'],
-				menus:['变更事项','法定代表人','董事、监事、经理信息','授权委托','提交材料'],
+				menus:['变更事项','法定代表人','人员信息','联络员信息','许可信息','授权委托','多证合一','附件信息'],
 				picker: ['同意', '驳回'],
 				infoSuggest:{
 					member:'王晓静',
@@ -237,7 +247,6 @@ page,.page-pre-detail{height: 100%;}
 		padding-left: 30rpx!important;
 	}
 }	
-
 /* 布局 */
 page{height: 100%}
 .page-pre-detail{
@@ -250,7 +259,6 @@ page{height: 100%}
 				flex:1;overflow: hidden;
 			}
 		}
-		
 	}
 }
 /* 意见填写区域 */
