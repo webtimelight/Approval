@@ -312,6 +312,40 @@
             }
             
         }
+		,{
+			"path" : "pages/nullify/nulInfo/infoMaterials",
+			"style" :                                                                                    
+			{
+				"navigationBarTitleText": "注销-提交材料",
+				"enablePullDownRefresh": false
+			}
+			
+		}
+		,{
+			"path" : "pages/nullify/nulInfo/infoDocuments",
+			"style" :                                                                                    
+			{
+				"navigationBarTitleText": "注销-多证合一",
+				"enablePullDownRefresh": false
+			}
+			
+		}
+		,{
+			"path" : "pages/nullify/nulInfo/infoException",
+			"style" :                                                                                    
+			{
+				"navigationBarTitleText": "注销-异常名录信息",
+				"enablePullDownRefresh": false
+			}
+			
+		} 
+		,{
+			"path": "pages/nullify/nulInfo/infoShareholder",
+			"style": {
+				"navigationBarTitleText": "注销登记-授权委托",
+				"enablePullDownRefresh": false
+			}
+		}
     ],
     "globalStyle": {
         "navigationBarTextStyle": "white",

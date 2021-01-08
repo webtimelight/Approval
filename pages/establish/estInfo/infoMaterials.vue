@@ -4,7 +4,6 @@
 		<cu-custom v-if="!hideNav" class="custom-nav" bgColor="bg-gradual-blue" :isBack="true">
 		    <block slot="backText">返回</block>
 		    <block slot="content">设立-提交材料</block>
-			<!-- <view slot="right" class="ope flex align-center" @click="save"><text class="icon fa fa-save"></text>保存</view> -->
 		</cu-custom>
 		<!-- 主体区域 -->
 		<view class="main-wrap">
@@ -12,17 +11,17 @@
 			<com-quick-skeleton :show="skeletonShow" bgColor="#f6f6f6" ></com-quick-skeleton>
 			<!-- 内容区域 -->
 				<view class="list">
-					<view class="list-item" v-for="(v,i) in list" :key="i" style="margin: 0;">
+					<view class="list-item" v-for="(v,i) in list" :key="i" style="margin: 0 0 30rpx 0;">
 						<view class="header justify-between align-center solid-bottom">
 							<text class="cuIcon-title text-blue"></text>
 							<text class="text-blue">文件标题：</text>{{v.title}}
 							<!-- <view class=""></view> -->
 						</view>
 						<view class="middle solid-bottom">
-							<view class="item text-cut">文件页数：{{v.page}}</view>
-							<view class="item text-cut">文件起始页：{{v.homePage}}</view>
-							<view class="item text-cut">文件结束页：{{v.endPage}}</view>
-							<view class="item text-cut flex">是否提交：{{v.whether}}</view>
+							<view class="item text-gray">文件页数：{{v.page}}</view>
+							<view class="item text-gray">文件起始页：{{v.homePage}}</view>
+							<view class="item text-gray">文件结束页：{{v.endPage}}</view>
+							<view class="item text-gray flex">是否提交：{{v.whether}}</view>
 						</view>
 					</view>
 				</view>

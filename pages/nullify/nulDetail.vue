@@ -25,11 +25,19 @@
 				</scroll-view>
 				<!-- 授权委托 -->
 				<scroll-view v-show="currentMenu==1" class="scroll-box" scroll-y>
-					授权委托
+					<info-shareholder hideNav></info-shareholder>
 				</scroll-view>
 				<!-- 提交材料 -->
 				<scroll-view v-show="currentMenu==2" class="scroll-box" scroll-y>
-					提交材料
+					<info-materials hideNav></info-materials>
+				</scroll-view>
+				<!-- 多证合一 -->
+				<scroll-view v-show="currentMenu==3" class="scroll-box" scroll-y>
+					<info-documents hideNav></info-documents>
+				</scroll-view>
+				<!-- 异常名录信息 -->
+				<scroll-view v-show="currentMenu==4" class="scroll-box" scroll-y>
+					异常名录信息
 				</scroll-view>
 			</view>
 			<!-- ============办理意见============ -->
@@ -110,10 +118,14 @@
 	import API from "@/mock/mock.js"
 	
 	import InfoNullify from '@/pages/nullify/nulInfo/infoNullify'
+	import infoShareholder from '@/pages/nullify/nulInfo/infoShareholder'
+	import infoMaterials from '@/pages/nullify/nulInfo/infoMaterials'
+	import infoDocuments from '@/pages/nullify/nulInfo/infoDocuments'
+	
 	import MescrollMixin from "@/components/com-mescroll-view/js/mescroll-mixins.js";
 	export default {
 		mixins: [MescrollMixin],
-		components:{InfoNullify},
+		components:{InfoNullify,infoShareholder,infoMaterials,infoDocuments},
 		data() {
 			return {
 				/* 字典 */
@@ -124,7 +136,7 @@
 				currentMenu:0,
 				childrenHasSave:false,
 				tabs:['申请书','办理意见'],
-				menus:['注销信息','授权委托','提交材料'],
+				menus:['注销信息','授权委托','提交材料','多证合一','异常名录信息'],
 				infoSuggest:{
 					member:'王晓静',
 					date:this.getDate(),

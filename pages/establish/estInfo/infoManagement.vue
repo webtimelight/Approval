@@ -4,7 +4,6 @@
 		<cu-custom v-if="!hideNav" class="custom-nav" bgColor="bg-gradual-blue" :isBack="true">
 		    <block slot="backText">返回</block>
 		    <block slot="content">设立-材料-董事、监事、经理信息</block>
-			<!-- <view slot="right" class="ope flex align-center" @click="save"><text class="icon fa fa-save"></text>保存</view> -->
 		</cu-custom>
 		<!-- 主体区域 -->
 		<view class="main-wrap">
@@ -12,14 +11,14 @@
 			<com-quick-skeleton :show="skeletonShow" bgColor="#f6f6f6" ></com-quick-skeleton>
 			<!-- 内容区域 -->
 				<view class="list">
-					<view class="list-item" v-for="(v,i) in list" :key="i" style="margin: 0;">
+					<view class="list-item" v-for="(v,i) in list" :key="i" style="margin: 0 0 30rpx 0;">
 						<view class="header flex justify-between align-center solid-bottom">
 							<view class="">姓名：{{v.name}}</view>
 						</view>
 						<view class="middle solid-bottom">
-							<view class="item text-cut">职务：{{v.duty}}</view>
-							<view class="item text-cut">证件类型：{{v.certificateType}}</view>
-							<view class="item text-cut">证件号码：{{v.idNumber}}</view>
+							<view class="item text-gray">职务：{{v.duty}}</view>
+							<view class="item text-gray">证件类型：{{v.certificateType}}</view>
+							<view class="item text-gray">证件号码：{{v.idNumber}}</view>
 						</view>
 					</view>
 				</view>

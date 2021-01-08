@@ -4,7 +4,6 @@
 		<cu-custom v-if="!hideNav" class="custom-nav" bgColor="bg-gradual-blue" :isBack="true">
 		    <block slot="backText">返回</block>
 		    <block slot="content">注销-申请书-注销信息</block>
-			<view slot="right" class="ope flex align-center" @click="save"><text class="icon fa fa-save"></text>保存</view>
 		</cu-custom>
 		<!-- 主体区域 -->
 		<view class="main-wrap">
@@ -28,11 +27,14 @@
 					<com-form-item label="企业名称">
 						<view class="info">{{entInfo.entName}}</view>
 					</com-form-item>
+					<com-form-item label="负责人">
+						<view class="info">{{entInfo.manager}}</view>
+					</com-form-item>
 					<com-form-item label="企业类型">
 						<view class="info">{{entInfo.entType}}</view>
 					</com-form-item>
-					<com-form-item label="负责人">
-						<view class="info">{{entInfo.manager}}</view>
+					<com-form-item label="注册资本">
+						<view class="info">{{entInfo.money}}</view>
 					</com-form-item>
 					<com-form-item label="住所">
 						<view class="info">{{entInfo.address}}</view>
@@ -40,9 +42,16 @@
 					<com-form-item label="成立日期">
 						<view class="info">{{entInfo.creatDate}}</view>
 					</com-form-item>
+					<com-form-item label="营业期限至">
+						<view class="info">{{entInfo.dueDate}}</view>
+					</com-form-item>
 					<com-form-item label="登记机关">
 						<view class="info">{{entInfo.regCom}}</view>
 					</com-form-item>
+					<com-form-item label="档案号">
+						<view class="info">{{entInfo.fileNumber}}</view>
+					</com-form-item>
+					
 				</com-form>	
 			</view>
 			<!-- 注销信息 -->
@@ -54,46 +63,43 @@
 					</view>
 				</view>
 				
-				<com-form ref="form" :model="nulInfo" :rules="rules" >
-					<com-form-item label="注销原因" prop="reason">
-						<input class="form-input" placeholder-class="placeholder" v-model="nulInfo.reason" placeholder="填写注销原因" />
-						<text class="text-orange cuIcon-questionfill margin-left-sm f-20"></text>
+				<com-form ref="form" :model="nulInfo">
+					<com-form-item label="清算组备案通知文号">
+						<view class="info">{{nulInfo.number}}</view>
 					</com-form-item>
-					<com-form-item label="清税情况" label-position="top">
-						<view slot="titleRight">
-							<button class="cu-btn bg-blue shadow round">重置</button>
-						</view>
-						<view class="check-group">
-							<radio-group class="check-list" @change="RadioChange($event,'clearTax')">
-								<label class="check-item" v-for="(item,index) in enums.clearTaxRadio" :key="index">
-									<radio class="radio-item" :checked="item.value==nulInfo.clearTax" :value="item.value"></radio>
-									{{item.name}}
-								</label>
-							</radio-group>
-						</view>
+					<com-form-item label="清算组成员">
+						<view class="info">{{nulInfo.member}}</view>
 					</com-form-item>
-					<com-form-item label="债权债务清理情况" label-position="top">
-						<view class="check-group">
-							<radio-group class="check-list" @change="RadioChange($event,'clearDebt')">
-								<label class="check-item" v-for="(item,index) in enums.clearDebtRadio" :key="index">
-									<radio class="radio-item" :checked="item.value==nulInfo.clearDebt" :value="item.value"></radio>
-									{{item.name}}
-								</label>
-							</radio-group>
-						</view>
+					<com-form-item label="清算组负责人">
+						<view class="info">{{nulInfo.principal}}</view>
 					</com-form-item>
-					<com-form-item label="缴回公章情况" label-position="top">
-						<view class="check-group">
-							<radio-group class="check-list" @change="RadioChange($event,'backSeal')">
-								<label class="check-item" v-for="(item,index) in enums.backSealRadio" :key="index">
-									<radio class="radio-item" :checked="item.value==nulInfo.backSeal" :value="item.value"></radio>
-									{{item.name}}
-								</label>
-							</radio-group>
-						</view>
+					<com-form-item label="注销原因" >
+						<view class="info">{{nulInfo.cause}}</view>
+					</com-form-item>
+					<com-form-item label="清税情况">
+						<view class="info">{{nulInfo.tax}}</view>
+					</com-form-item>
+					<com-form-item label="债权债务清理情况">
+						<view class="info">{{nulInfo.debt}}</view>
+					</com-form-item>
+					<com-form-item label="公告报纸名称">
+						<view class="info">{{nulInfo.newspaper}}</view>
+					</com-form-item>
+					<com-form-item label="公告日期">
+						<view class="info">{{nulInfo.time}}</view>
+					</com-form-item>
+					<com-form-item label="对外投资清理情况">
+						<view class="info">{{nulInfo.investment}}</view>
+					</com-form-item>
+					<com-form-item label="分公司注销登记情况">
+						<view class="info">{{nulInfo.register}}</view>
+					</com-form-item>
+					<com-form-item label="缴回公章情况">
+						<view class="info">{{nulInfo.cachet}}</view>
 					</com-form-item>
 					<com-form-item label="注销说明" label-position="top">
-						<textarea class="textarea" :maxlength="2000" placeholder-class="item-placeholder"  v-model="nulInfo.des" placeholder="请填写审批意见"></textarea>
+						<view class="info">{{nulInfo.des}}</view>
+						<!-- <textarea class="textarea" :maxlength="2000" placeholder-class="item-placeholder"  v-model="nulInfo.des" placeholder="请填写审批意见"></textarea> -->
 					</com-form-item>
 				</com-form>	
 			</view>
@@ -116,12 +122,6 @@
 		data() {
 			return {
 				skeletonShow:false,
-				// 字典表
-				enums:{
-					clearTaxRadio:[{ value: '0',name: '已清理完毕'},{value: '1',name: '已清理完毕'}],
-					clearDebtRadio:[{ value: '0',name: '主管部门或清算组织负责清理债权债务'},{value: '1',name: '债权清理完毕'}],
-					backSealRadio:[{ value: '0',name: '已缴回'},{value: '1',name: '未缴回'}]
-				},
 				// 企业基本信息
 				entInfo:{
 					regNum:3701002904654,
@@ -131,41 +131,33 @@
 					manager:'陈麟',
 					address:'济南市历下区花园东路36号',
 					creatDate:'1999-12-30',
-					regCom:'济南市市场监督管理局'
+					regCom:'济南市市场监督管理局',
+					money:'5000万元',
+					dueDate:'2090-12-31',
+					fileNumber:'3701002827138'
 				},
 				// 注销信息
 				nulInfo:{
+					number:'(济)登记内备字[2019]第000289号',
+					member:'滕燕霞、张述明',
+					principal:'滕燕霞',
+					cause:'其他原因',
+					tax:'已经清理完毕 ',
+					newspaper:'XXXXXX',
+					time:'2020-12-31',
+					investment:'已清理完毕',
+					register:'已清理完毕 ',
+					cachet:'已缴回',
+					debt:'债务清理完结',
 					reason:'其他原因',
-					clearTax:0,
-					clearDebt:1,
-					backSeal:0,
 					des:'该公司成立以来，一直未发生经营活动'
 				},
-				//表单验证
-				rules: {
-					reason: [
-						{required: true,message: '注销原因不能为空'}
-					]
-				}
 			}
 		},
 		mounted () {
 		},
 		methods: {
-			//单选
-			RadioChange(e,val) {
-				this.nulInfo[val] = e.detail.value;
-			},
-			// 保存
-			save() {
-				this.$refs.form.validate((res) => {
-					if (res) {
-						uni.showToast({
-							title: '保存成功'
-						})
-					}
-				})
-			}
+			
 		}
 	}
 </script>
