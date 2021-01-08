@@ -1,201 +1,253 @@
 {
-	"pages": [
-		{
-			"path": "pages/login/login",
-			"style":{
-				"navigationBarTitleText":"登录"
-			}
-		},{
-			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "首页"
-			}
-		},{
-            "path" : "pages/preApproval/preIndex",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "登记预审"
-            }
-        },{
-            "path" : "pages/preApproval/preList",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "预审登记列表",
-                "enablePullDownRefresh": false
-            }
-        },{
-            "path" : "pages/establish/estIndex",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "设立登记",
-                "enablePullDownRefresh": false
-            }
-        },{
-		    "path" : "pages/establish/estList",
-		    "style" :                                                                                    
-		    {
-		        "navigationBarTitleText": "设立登记列表"
-		    }
-		},{
-            "path" : "pages/establish/estDetail",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "设立登记详情",
-                "enablePullDownRefresh": false
-            }
-        },{
-		    "path" : "pages/establish/estInfo/infoBase",
-		    "style" :                                                                                    
-		    {
-		        "navigationBarTitleText": "设立-申请书-基本信息",
-		        "enablePullDownRefresh": false
-		    }
-		},{
-            "path" : "pages/modify/modIndex",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "变更登记",
-                "enablePullDownRefresh": false
-            }
-        },{
-            "path" : "pages/modify/modList",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "变更登记列表",
-                "enablePullDownRefresh": false
-            }
-        },{
-            "path" : "pages/modify/modDetail",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "变更登记详情",
-                "enablePullDownRefresh": false
-            }
-        },{
-            "path" : "pages/modify/modInfo/infoChange",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "变更登记-变更事项",
-                "enablePullDownRefresh": false
-            }
-            
-        },{
-            "path" : "pages/nullify/nulIndex",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "注销登记",
-                "enablePullDownRefresh": false
-            }
-        },{
-            "path" : "pages/nullify/nulList",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "注销登记列表",
-                "enablePullDownRefresh": false
-            }
-        },{
-            "path" : "pages/nullify/nulDetail",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "注销登记详情",
-                "enablePullDownRefresh": false
-            }
+    "pages": [{
+        "path": "pages/login/login",
+        "style": {
+            "navigationBarTitleText": "登录"
         }
-        ,{
-            "path" : "pages/nullify/nulInfo/infoNullify",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "注销登记-注销信息",
-                "enablePullDownRefresh": false
-            }
+    }, {
+        "path": "pages/index/index",
+        "style": {
+            "navigationBarTitleText": "首页"
         }
-        ,{
-            "path" : "pages/formDemo/formDemo",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "表单校验演示页面",
-                "enablePullDownRefresh": false
-            }
+    }, {
+        "path": "pages/preApproval/preIndex",
+        "style": {
+            "navigationBarTitleText": "登记预审"
         }
-        ,{
-            "path" : "pages/modify/modInfo/infoLegal",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "变更登记-法定代表人",
-                "enablePullDownRefresh": false
-            }
-            
+    }, {
+        "path": "pages/preApproval/preList",
+        "style": {
+            "navigationBarTitleText": "预审登记列表",
+            "enablePullDownRefresh": false
         }
-        ,{
-            "path" : "pages/modify/modInfo/infoLiaison",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "变更登记-联络员信息",
-                "enablePullDownRefresh": false
-            }
-            
+    }, {
+        "path": "pages/establish/estIndex",
+        "style": {
+            "navigationBarTitleText": "设立登记",
+            "enablePullDownRefresh": false
         }
-        ,{
-            "path" : "pages/modify/modInfo/infoAuthor",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "变更登记-授权委托",
-                "enablePullDownRefresh": false
-            }
-            
+    }, {
+        "path": "pages/establish/estList",
+        "style": {
+            "navigationBarTitleText": "设立登记列表"
         }
-        ,{
-            "path" : "pages/preApproval/preDetailEst/preDetailEst",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "预审-设立详情",
-                "enablePullDownRefresh": false
-            }
-            
+    }, {
+        "path": "pages/establish/estDetail",
+        "style": {
+            "navigationBarTitleText": "设立登记详情",
+            "enablePullDownRefresh": false
         }
-        ,{
-            "path" : "pages/preApproval/preDetailMod/preDetailMod",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "预审-变更详情",
-                "enablePullDownRefresh": false
-            }
-            
+    }, {
+        "path": "pages/establish/estInfo/infoBase",
+        "style": {
+            "navigationBarTitleText": "设立-申请书-基本信息",
+            "enablePullDownRefresh": false
         }
-        ,{
-            "path" : "pages/preApproval/preDetailNul/preDetailNul",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "预审-注销详情",
-                "enablePullDownRefresh": false
-            }
-            
+    }, {
+        "path": "pages/modify/modIndex",
+        "style": {
+            "navigationBarTitleText": "变更登记",
+            "enablePullDownRefresh": false
         }
-    ],
+    }, {
+        "path": "pages/modify/modList",
+        "style": {
+            "navigationBarTitleText": "变更登记列表",
+            "enablePullDownRefresh": false
+        }
+    }, {
+        "path": "pages/modify/modDetail",
+        "style": {
+            "navigationBarTitleText": "变更登记详情",
+            "enablePullDownRefresh": false
+        }
+    }, {
+        "path": "pages/modify/modInfo/infoChange",
+        "style": {
+            "navigationBarTitleText": "变更登记-变更事项",
+            "enablePullDownRefresh": false
+        }
 
-	"globalStyle": {
-		"navigationBarTextStyle": "white",
-		"navigationBarTitleText": "济南工商行政许可",
-		"navigationBarBackgroundColor": "#007eff",
-		"backgroundColor": "#FFFFFF",
-		"navigationStyle": "custom",
-		"rpxCalcMaxDeviceWidth": 375,
-		"rpxCalcBaseDeviceWidth": 375,
-		"maxWidth":768
-	},
-	"condition" : { //模式配置，仅开发期间生效
-		"current": 0, //当前激活的模式(list 的索引项)
-		"list": [
-			{
-				"name": "表单编辑demo", //模式名称
-				"path": "pages/formDemo/formDemo", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			},
-			{
-				"name": "预审登记列表", //模式名称
-				"path": "pages/preApproval/preList/preList", //启动页面，必选
-				"query": "" //启动参数，在页面的onLoad函数里面得到
-			}
-		]
-	}
+    }, {
+        "path": "pages/nullify/nulIndex",
+        "style": {
+            "navigationBarTitleText": "注销登记",
+            "enablePullDownRefresh": false
+        }
+    }, {
+        "path": "pages/nullify/nulList",
+        "style": {
+            "navigationBarTitleText": "注销登记列表",
+            "enablePullDownRefresh": false
+        }
+    }, {
+        "path": "pages/nullify/nulDetail",
+        "style": {
+            "navigationBarTitleText": "注销登记详情",
+            "enablePullDownRefresh": false
+        }
+    }, {
+        "path": "pages/nullify/nulInfo/infoNullify",
+        "style": {
+            "navigationBarTitleText": "注销登记-注销信息",
+            "enablePullDownRefresh": false
+        }
+    }, {
+        "path": "pages/formDemo/formDemo",
+        "style": {
+            "navigationBarTitleText": "表单校验演示页面",
+            "enablePullDownRefresh": false
+        }
+    }, {
+        "path": "pages/modify/modInfo/infoLegal",
+        "style": {
+            "navigationBarTitleText": "变更登记-法定代表人",
+            "enablePullDownRefresh": false
+        }
+
+    }, {
+        "path": "pages/modify/modInfo/infoLiaison",
+        "style": {
+            "navigationBarTitleText": "变更登记-联络员信息",
+            "enablePullDownRefresh": false
+        }
+
+    }, {
+        "path": "pages/modify/modInfo/infoAuthor",
+        "style": {
+            "navigationBarTitleText": "变更登记-授权委托",
+            "enablePullDownRefresh": false
+        }
+
+    }, {
+        "path": "pages/preApproval/preDetailEst/preDetailEst",
+        "style": {
+            "navigationBarTitleText": "预审-设立详情",
+            "enablePullDownRefresh": false
+        }
+
+    }, {
+        "path": "pages/preApproval/preDetailMod/preDetailMod",
+        "style": {
+            "navigationBarTitleText": "预审-变更详情",
+            "enablePullDownRefresh": false
+        }
+
+    }, {
+        "path": "pages/preApproval/preDetailNul/preDetailNul",
+        "style": {
+            "navigationBarTitleText": "预审-注销详情",
+            "enablePullDownRefresh": false
+        }
+
+    }, {
+        "path": "pages/establish/estInfo/infoLegal",
+        "style": {
+            "navigationBarTitleText": "设立登记-法人",
+            "enablePullDownRefresh": false
+        }
+
+    }, {
+        "path": "pages/establish/estInfo/infoShareholder",
+        "style": {
+            "navigationBarTitleText": "设立-股东",
+            "enablePullDownRefresh": false
+        }
+
+    }, {
+        "path": "pages/establish/estInfo/infoManagement",
+        "style": {
+            "navigationBarTitleText": "设立-董事、监事、经理信息",
+            "enablePullDownRefresh": false
+        }
+
+    }, {
+        "path": "pages/establish/estInfo/infoAuthorize",
+        "style": {
+            "navigationBarTitleText": "设立-授权委托",
+            "enablePullDownRefresh": false
+        }
+
+    }, {
+        "path": "pages/establish/estInfo/infoLiaison",
+        "style": {
+            "navigationBarTitleText": "设立-联络员",
+            "enablePullDownRefresh": false
+        }
+
+    }, {
+        "path": "pages/establish/estInfo/infoAutonym",
+        "style": {
+            "navigationBarTitleText": "设立-人员实名认证",
+            "enablePullDownRefresh": false
+        }
+
+    }, {
+        "path": "pages/establish/estInfo/infoDocuments",
+        "style": {
+            "navigationBarTitleText": "设立-多证合一",
+            "enablePullDownRefresh": false
+        }
+
+    }, {
+        "path": "pages/establish/estInfo/infoDocuments",
+        "style": {
+            "navigationBarTitleText": "设立-多证合一详情",
+            "enablePullDownRefresh": false
+        }
+
+    }, {
+        "path": "pages/establish/estInfo/infoDetail",
+        "style": {
+            "navigationBarTitleText": "设立-多证合一详情",
+            "enablePullDownRefresh": false
+        }
+
+    }, {
+        "path": "pages/establish/estInfo/infoPostposition",
+        "style": {
+            "navigationBarTitleText": "设立-后置审批",
+            "enablePullDownRefresh": false
+        }
+
+    }, {
+        "path": "pages/establish/estInfo/infoMaterials",
+        "style": {
+            "navigationBarTitleText": "设立-提交材料",
+            "enablePullDownRefresh": false
+        }
+
+    }, {
+        "path": "pages/establish/estInfo/infoPermission",
+        "style": {
+            "navigationBarTitleText": "设立-许可经营",
+            "enablePullDownRefresh": false
+        }
+
+    }],
+
+    "globalStyle": {
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "济南工商行政许可",
+        "navigationBarBackgroundColor": "#007eff",
+        "backgroundColor": "#FFFFFF",
+        "navigationStyle": "custom",
+        "rpxCalcMaxDeviceWidth": 375,
+        "rpxCalcBaseDeviceWidth": 375,
+        "maxWidth": 768
+    },
+    "condition": {
+        "current": 0,
+        "list": [{
+                "name": "表单编辑demo",
+                "path": "pages/formDemo/formDemo",
+                "query": ""
+            },
+            {
+                "name": "预审登记列表",
+                "path": "pages/preApproval/preList/preList",
+                "query": ""
+            }
+        ]
+    }
 }

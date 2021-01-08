@@ -4,34 +4,27 @@
 		<cu-custom v-if="!hideNav" class="custom-nav" bgColor="bg-gradual-blue" :isBack="true">
 		    <block slot="backText">返回</block>
 		    <block slot="content">设立材料-基本信息</block>
-			<view slot="right" class="ope flex align-center" @click="save"><text class="icon fa fa-save"></text>保存</view>
+			<!-- <view slot="right" class="ope flex align-center" @click="save"><text class="icon fa fa-save"></text>保存</view> -->
 		</cu-custom>
 		<!-- 主体区域 -->
 		<view class="main-wrap">
 			<!-- 详情骨架 -->
 			<com-quick-skeleton :show="skeletonShow" bgColor="#f6f6f6" loading="flush" template="detail" :style="{'top':hideNav?'':CustomBar + 'px'}" ></com-quick-skeleton>
 			<!-- 内容区域 -->
-			<view class="com-form-container">
-				<com-form ref="form" :model="dataBase" :rules="rules" >
-					<com-form-item label="企业名称" prop="entName">
-						<input class="form-input" placeholder-class="placeholder" v-model="dataBase.entName" placeholder="请输入企业名称" />
+			<view class="com-form-container ">
+				<com-form ref="form" :model="dataBase">
+					<com-form-item label="企业名称">
+						<view>{{dataBase.entName}}</view>
 						<view slot="extContent" class="flex align-center padding-top-xs padding-bottom-sm">
 							<button class="cu-btn bg-blue shadow">名称查重</button>
 							<view  class="padding-left text-orange f-14">名称来源：名称内网核准</view>
 						</view>
 					</com-form-item>
-					<com-form-item label="名称预先登记文号" prop="regNum" label-position="top">
-						<input class="form-input" placeholder-class="placeholder" v-model="dataBase.regNum" placeholder="请输入名称预先登记文号" />
+					<com-form-item label="名称预先登记文号" label-position="top">
+						<view>{{dataBase.regNum}}</view>
 					</com-form-item>
-					<com-form-item label="是否集团母公司" prop="isParCompany" label-position="top">
-						<view class="check-group">
-							<radio-group class="check-list" @change="RadioChange($event,'isParCompany')">
-								<label class="check-item" v-for="(item,index) in enums.radio" :key="index">
-									<radio class="radio-item" :checked="item.value==dataBase.isParCompany" :value="item.value"></radio>
-									{{item.name}}
-								</label>
-							</radio-group>
-						</view>
+					<com-form-item label="是否集团母公司">
+						<view>{{dataBase.radio}}</view>
 					</com-form-item>
 					
 					<com-form-item class="margin-top" label="住所">
@@ -52,12 +45,12 @@
 								</com-picker>
 							</view>
 							<view class="block-item">
-								<input class="form-input" placeholder-class="placeholder" v-model="dataBase.address" placeholder="填写详细地址(乡/村/门牌号)" ></input>
+								<view>{{dataBase.address}}</view>
 							</view>
 						</view>
 					</com-form-item>
 					<com-form-item label="详细地址">
-						<input class="form-input" placeholder-class="placeholder" v-model="dataBase.addressDetail" placeholder="请输入详细地址" />
+						<view>{{dataBase.addressDetail}}</view>
 						<view slot="extContent" class="flex align-center padding-top-xs padding-bottom-sm">
 							<button class="cu-btn bg-blue shadow">地址查重</button>
 							<view  class="padding-left text-orange f-14">查重结果：地址无重复</view>
@@ -66,7 +59,7 @@
 					<view class="text-orange margin-top padding bg-white solid-bottom">
 						按照山东省高法和省市场监督管理局联合印发的《关于推进市场主体法律文书送达地址承诺确认工作的实施意见》（鲁高法【2020】24）规定，您登记的此住所为依法确认的法律文书送达地址，请诚信填写准确的地址信息，以便能够及时接收法律文书，若因您提供的虚假地址或提供送达地址不准确，送达地址变更未及时更新，拒绝签收等导致无法及时有效接受文书而提出异议，法院不予支持。
 					</view>
-					<com-form-item label="法律文书送达地址" prop="address2" label-position="top">
+					<com-form-item label="法律文书送达地址" label-position="top">
 						<view class="block-group">
 							<view class="block-item" @click="handleTap('cityPicker2')">
 								<view class="placeholder picker" v-if="!dataBase.cityLabel2">选择省-市-区</view>
@@ -84,17 +77,109 @@
 								</com-picker>
 							</view>
 							<view class="block-item">
-								<input class="form-input" placeholder-class="placeholder" v-model="dataBase.address2" placeholder="填写详细地址(乡/村/门牌号)" ></input>
+								<view>{{dataBase.address2}}</view>
 							</view>
 						</view>
 					</com-form-item>
 					<com-form-item label="详细地址">
-						<input class="form-input" placeholder-class="placeholder" v-model="dataBase.addressDetail2" placeholder="请输入详细地址" />
+						<view>{{dataBase.addressDetail2}}</view>
 						<view slot="extContent" class="flex align-center padding-top-xs padding-bottom-sm">
 							<button class="cu-btn bg-blue shadow" @click="dataBase.addressDetail2=dataBase.addressDetail">与住所一致</button>
 						</view>
 					</com-form-item>
 				</com-form>	
+				
+				<com-form :model="dataBase" ref="form" style="margin-top: 40rpx;">
+						<com-form-item label="联系电话">
+							<view>{{dataBase.mobile}}</view>
+						</com-form-item>
+						<com-form-item label="邮政编码">
+							<view>{{dataBase.postalCode}}</view>
+						</com-form-item>
+						<com-form-item label="法定代表人姓名">
+							<view>{{dataBase.legalName}}</view>
+						</com-form-item>
+						<com-form-item label="注册资本">
+							<view>{{dataBase.registeredAssets}}</view>万元
+						</com-form-item>
+						<com-form-item label="实收资本">
+							<view>{{dataBase.paidCapital}}</view>万元
+						</com-form-item>
+						<com-form-item label="公司类型">
+							<view>{{dataBase.companyType}}</view>
+						</com-form-item>
+						<com-form-item label="设立方式">
+							<view>{{dataBase.methodStablishment }}</view>
+						</com-form-item>
+						<com-form-item label="所属行业">
+							<view>{{dataBase.industryInvolved }}</view>
+						</com-form-item>
+						<com-form-item label="行业代码">
+							<view>{{dataBase.industryCode }}</view>
+						</com-form-item>
+						<com-form-item label="是否实缴">
+							<view>{{dataBase.whetherPaid }}</view>
+						</com-form-item>
+						<com-form-item label="实缴类型"> 
+							<view>{{dataBase.paidType }}</view>
+						</com-form-item>
+						<!-- <com-form-item label="经营范围" label-position="top"></com-form-item> -->
+						<com-form-item label="经营范围规范用语：" label-position="top">
+							<view>{{dataBase.specificationLanguage }}</view>
+						</com-form-item>
+						<com-form-item label="用户自主添加的经营范围：" label-position="top">
+							<view>{{dataBase.businessScope }}</view>
+						</com-form-item>
+						<com-form-item label="营业期限">
+							<view>{{dataBase.termOperation }}</view>
+						</com-form-item>
+						<com-form-item label="申请副本数">
+							<view>{{dataBase.applyNum }}</view>
+						</com-form-item>
+						<com-form-item label="登记机关">
+							<view>{{dataBase.registrationAuthority }}</view>
+						</com-form-item>
+						<com-form-item label="管辖机关">
+							<view>{{dataBase.jurisdictionInstitution }}</view>
+						</com-form-item>
+						<com-form-item label="属地工商所">
+							<view>{{dataBase.commerceAddress }}</view>
+						</com-form-item>
+						<view class="cu-bar">
+							<view class="action">
+								<text class="cuIcon-title text-blue"></text>
+								<text class="text-blue">补充信息:</text>
+							</view>
+						</view>
+						</com-form-item>
+						<com-form-item label="特定经营行业">
+							<view>{{dataBase.specificBusinessLine }}</view>
+						</com-form-item>
+						<com-form-item label="特定经营地域">
+							<view>{{dataBase.specificAddress }}</view>
+						</com-form-item>
+						<com-form-item label="城乡标志">
+							<view>{{dataBase.townSign }}</view>
+						</com-form-item>
+						<com-form-item label="是否扶持户">
+							<view>{{dataBase.supportFamily }}</view>
+						</com-form-item>
+						<com-form-item label="是否经纪人">
+							<view>否</view>
+						</com-form-item>
+						<com-form-item label="是否市场开办者">
+							<view>否</view>
+						</com-form-item>
+						<com-form-item label="是否广告企业">
+							<view>否</view>
+						</com-form-item>
+						<com-form-item label="是否农资市场">
+							<view>否</view>
+						</com-form-item>
+						<com-form-item label="备注">
+							<view>{{dataBase.remark }}</view>
+						</com-form-item>
+				</com-form>
 			</view>
 		</view>
 	</view>
@@ -116,15 +201,13 @@
 			return {
 				skeletonShow:false,
 				cityList:cityJson,
-				// 字典表
-				enums:{
-					radio:[{ value: '0',name: '集团母公司'},{value: '1',name: '集团子公司（集团成员）'},{value: '2',name: '参股公司'}],
-				},
+				
 				// 基本信息
 				dataBase:{
 					entName:'山东智华小商品有限公司',
 					regNum:'（鲁）登记私名预核字[2017]第02484号',
 					isParCompany:'0',
+					isParCompanyTwo:'0',
 					cityValue: ["370000","370100","370102"],//默认值
 					cityLabel:'',
 					address:'东风街道36号',
@@ -134,80 +217,44 @@
 					cityLabel2:'',
 					address2:'',
 					addressDetail2:'',
+					radio:'集团母公司',//是否集团母公司
+					mobile:'15006409376',
+					postalCode:'250000',//邮政编码
+					legalName:'刘长青',//法人姓名
+					registeredAssets:'5000',//注册资本
+					paidCapital:'5000',//实收资金
+					methodStablishment:'一般新设',//设立方式
+					whetherPaid:'是',//是否实缴
+					companyType:'有限责任公司(自然人投资或控股)',//公司类型
+					industryInvolved:'农、林、牧、渔业',//所属行业
+					industryCode:'  其他农业',//行业代码
+					paidType:'商业银行',
+					specificationLanguage:'',//规范用语
+					businessScope:'计算机应用系统集成、网络设计、软件开发、维护。（依法须经批准的项目，经相关部门批准后方可开展经营活动）',//经营范围
+					termOperation:'长期',//营业期限
+					applyNum:'1',//申请副本数
+					registrationAuthority:'济南市市场监督管理局',//登记机关
+					jurisdictionInstitution:'济南市历下区市场监督管理局',//管辖机关
+					commerceAddress:'文化东路市场监督管理所',//属地工商所
+					specificBusinessLine:'0110种植养殖类',//特定经营行业
+					specificAddress:'孵化园',//特定经营地域
+					townSign:'城市',//城乡标志
+					supportFamily:'否',//是否扶持户
+					remark:'备注内容',//备注内容
 				},
-				// 表单验证
-				rules:{
-					entName:[
-						{required: true,message: '企业名称不能为空'}
-					],
-					regNum:[
-						{required: true,message: '名称预先登记文号不能为空'}
-					],
-					isParCompany:[
-						{required: true,message: '是否集团母公司为必选项'}
-					],
-					entName:[
-						{required: true,message: '企业名称不能为空'}
-					],
-					address:[
-						{required: true,message: '住所不能为空'}
-					],
-					address2:[
-						{required: true,message: '法律文书送达地址不能为空'}
-					]
-				}
+
+			
 			}
 		},
 		mounted () {
-		  this.$nextTick(() => {
-		    // 调用getColumnsInfo方法获取默认值的选项信息,进行回填
-		    const cityInfo = this.$refs.cityPicker.getColumnsInfo(this.dataBase.cityValue);
-		    const cityInfo2 = this.$refs.cityPicker2.getColumnsInfo(this.dataBase.cityValue2);
-		    this.dataBase.cityLabel = cityInfo.item?cityInfo.item.map(m => m.label).join('-'):'';
-		    this.dataBase.cityLabel2 = cityInfo2.item?cityInfo2.item.map(m => m.label).join('-'):'';
-		  })
+		
 		},
 		methods: {
-			// 保存
-			save() {
-				this.$refs.form.validate((res) => {
-					if (res) {
-						uni.showToast({
-							title: '保存成功'
-						})
-					}
-				})
-			},
-			//单选
-			RadioChange(e,val) {
-				this.dataBase[val] = e.detail.value;
-			},
-			//多列选择器
-			handleTap (picker) {
-			  this.$refs[picker].show()
-			},
-			handleChange (e) {
-			  console.log('change::', e)
-			},
-			handleConfirm (e) {
-			  // 如果存在多个picker，可以在picker上设置dataset属性，confirm中获取，就能区分是哪个picker了
-			  console.log('confirm::', e)
-			  if (e) {
-			    const name = e.dataset.name
-			    const label = e.item.map(m => m.label).join('-')
-			    if (name && label) {
-			       this.dataBase[name] = label;
-			    }
-			  }
-			  console.log(this.dataBase.cityLabel)
-			},
-			handleCancel (e) {
-			  console.log('cancel::', e)
-			}
+			
 		}
 	}
 </script>
 
 <style scoped lang="scss">
-
+	
 </style>

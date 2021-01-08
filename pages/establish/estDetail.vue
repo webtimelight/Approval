@@ -25,27 +25,43 @@
 				</scroll-view>
 				<!-- 法定代表人 -->
 				<scroll-view v-show="currentMenu==1" class="scroll-box" scroll-y>
-					法定代表人信息
+					<info-legal hideNav></info-legal>
 				</scroll-view>
 				<!-- 董事、监事、经理信息 -->
 				<scroll-view v-show="currentMenu==2" class="scroll-box" scroll-y>
-					董事、监事、经理信息
+					<info-management hideNav></info-management>
 				</scroll-view>
 				<!-- 股东（发起人） -->
 				<scroll-view v-show="currentMenu==3" class="scroll-box" scroll-y>
-					股东（发起人）
+					<info-shareholder hideNav></info-shareholder>
+				</scroll-view>
+				<!-- 联络员信息 -->
+				<scroll-view v-show="currentMenu==4" class="scroll-box" scroll-y>
+					<info-liaison hideNav></info-liaison>
+				</scroll-view>
+				<!-- 后置审批 -->
+				<scroll-view v-show="currentMenu==5" class="scroll-box" scroll-y>
+					<info-postposition hideNav></info-postposition>
 				</scroll-view>
 				<!-- 许可经营 -->
-				<scroll-view v-show="currentMenu==4" class="scroll-box" scroll-y>
-					许可经营
+				<scroll-view v-show="currentMenu==6" class="scroll-box" scroll-y>
+					<info-permission hideNav></info-permission>
 				</scroll-view>
 				<!-- 授权委托 -->
-				<scroll-view v-show="currentMenu==5" class="scroll-box" scroll-y>
-					授权委托
+				<scroll-view v-show="currentMenu==7" class="scroll-box" scroll-y>
+					<info-authorize hideNav></info-authorize>
+				</scroll-view>
+				<!-- 多证合一 -->
+				<scroll-view v-show="currentMenu==8" class="scroll-box" scroll-y>
+					<info-documents hideNav></info-documents>
 				</scroll-view>
 				<!-- 提交材料 -->
-				<scroll-view v-show="currentMenu==6" class="scroll-box" scroll-y>
-					提交材料
+				<scroll-view v-show="currentMenu==9" class="scroll-box" scroll-y>
+					<info-materials hideNav></info-materials>
+				</scroll-view>
+				<!-- 人员实名认证 -->
+				<scroll-view v-show="currentMenu==10" class="scroll-box" scroll-y>
+					<info-autonym hideNav></info-autonym>
 				</scroll-view>
 			</view>
 			<!-- ============办理意见============ -->
@@ -127,10 +143,21 @@
 	import API from "@/mock/mock.js"
 	
 	import InfoBase from '@/pages/establish/estInfo/infoBase'
+	import infoLegal from '@/pages/establish/estInfo/infoLegal'
+	import infoShareholder from '@/pages/establish/estInfo/infoShareholder'
+	import infoManagement from '@/pages/establish/estInfo/infoManagement'
+	import infoAuthorize from '@/pages/establish/estInfo/infoAuthorize'
+	import infoLiaison from '@/pages/establish/estInfo/infoLiaison'
+	import infoAutonym from '@/pages/establish/estInfo/infoAutonym'
+	import infoDocuments from '@/pages/establish/estInfo/infoDocuments'
+	import infoPostposition from '@/pages/establish/estInfo/infoPostposition'
+	import infoMaterials from '@/pages/establish/estInfo/infoMaterials'
+	import infoPermission from '@/pages/establish/estInfo/infoPermission'
+	
 	import MescrollMixin from "@/components/com-mescroll-view/js/mescroll-mixins.js";
 	export default {
 		mixins: [MescrollMixin],
-		components:{InfoBase},
+		components:{InfoBase,infoLegal,infoShareholder,infoManagement,infoAuthorize,infoLiaison,infoAutonym,infoDocuments,infoPostposition,infoMaterials,infoPermission},
 		data() {
 			return {
 				/* 字典 */
@@ -141,7 +168,7 @@
 				currentMenu:0,
 				childrenHasSave:false,
 				tabs:['申请书','办理意见'],
-				menus:['基本信息','法定代表人','董事、监事、经理信息','股东（发起人）','许可经营','授权委托','提交材料'],
+				menus:['基本信息','法定代表人','董事、监事、经理信息','股东（发起人）','联络员信息','后置审批','许可经营','授权委托','多证合一','提交材料','人员实名认证'],
 				infoSuggest:{
 					member:'王晓静',
 					date:this.getDate(),
@@ -168,7 +195,7 @@
 			}
 		},
 		mounted() {
-			this.hasSave()
+			// this.hasSave()
 		},
 		watch:{
 			currentMenu(){
