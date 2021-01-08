@@ -28,7 +28,7 @@
 					</view>
 				</view>
 				<view class="list-item">
-					<view class="ope padding text-center">
+					<view class="ope padding text-center" @click="navTo('/pages/public/approvalList')">
 						<text class="lg text-red cuIcon-roundadd padding-right f-18"></text>
 						<text class="text-red">添加后置审批事项</text>
 					</view>
@@ -72,6 +72,12 @@
 		async mounted() {
 		},
 		methods: {
+			// 跳转
+			navTo(url){
+				uni.navigateTo({
+					url
+				})
+			},
 			// 删除后置审批项
 			del(i){
 				uni.showModal({

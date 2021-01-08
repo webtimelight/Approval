@@ -29,25 +29,29 @@
 				<scroll-view v-show="currentMenu==2" class="scroll-box" scroll-y>
 					<info-member hideNav ref="info2"></info-member>
 				</scroll-view>
-				<!-- 联络员信息 -->
+				<!-- 出资信息 -->
 				<scroll-view v-show="currentMenu==3" class="scroll-box" scroll-y>
-					<info-liaison hideNav ref="info3"></info-liaison>
+					<info-share hideNav ref="info3"></info-share>
 				</scroll-view>
 				<!-- 许可信息 -->
 				<scroll-view v-show="currentMenu==4" class="scroll-box" scroll-y>
 					<info-permit hideNav ref="info4"></info-permit>
 				</scroll-view>
-				<!-- 授权委托 -->
+				<!-- 联络员 -->
 				<scroll-view v-show="currentMenu==5" class="scroll-box" scroll-y>
-					<info-author hideNav ref="info5"></info-author>
+					<info-liaison hideNav ref="info5"></info-liaison>
+				</scroll-view>
+				<!-- 授权委托 -->
+				<scroll-view v-show="currentMenu==6" class="scroll-box" scroll-y>
+					<info-author hideNav ref="info6"></info-author>
 				</scroll-view>
 				<!-- 多证合一 -->
-				<scroll-view v-show="currentMenu==6" class="scroll-box" scroll-y>
-					<info-licence hideNav ref="info5"></info-licence>
+				<scroll-view v-show="currentMenu==7" class="scroll-box" scroll-y>
+					<info-licence hideNav ref="info7"></info-licence>
 				</scroll-view>
 				<!-- 附件信息 -->
-				<scroll-view v-show="currentMenu==7" class="scroll-box" scroll-y>
-					附件信息
+				<scroll-view v-show="currentMenu==8" class="scroll-box" scroll-y>
+					<info-stuff hideNav ref="info8"></info-stuff>
 				</scroll-view>
 			</view>
 			<!-- ============办理意见============ -->
@@ -85,8 +89,8 @@
 							</com-form-item>
 						</com-form>
 						<view class="btn-gropu flex justify-between padding padding-bottom-lg padding-top-lg bg-white">
-							<button class="cu-btn bg-green shadow" @click="suggestSubmit">受理通过</button>
-							<button class="cu-btn bg-blue shadow">不予受理</button>
+							<button class="cu-btn bg-green shadow" @click="suggestSubmit">材料指导完成</button>
+							<button class="cu-btn bg-blue shadow">材料指导退回</button>
 							<button class="cu-btn bg-red shadow">名称驳回</button>
 						</view>
 					</view>	
@@ -126,17 +130,19 @@
 
 <script>
 	import API from "@/mock/mock.js"
-	import infoChange from '@/pages/modify/modInfo/infoChange'
-	import infoLegal from '@/pages/modify/modInfo/infoLegal'
-	import infoMember from '@/pages/modify/modInfo/infoMember'
-	import infoLiaison from '@/pages/modify/modInfo/infoLiaison'
-	import infoPermit from '@/pages/modify/modInfo/infoPermit'
-	import infoAuthor from '@/pages/modify/modInfo/infoAuthor'
-	import infoLicence from '@/pages/modify/modInfo/infoLicence'
+	import infoChange from '@/pages/modify/modInfo/infoChange' //变更事项
+	import infoLegal from '@/pages/modify/modInfo/infoLegal'  //法定代表人
+	import infoMember from '@/pages/modify/modInfo/infoMember' //人员信息--董监事经理？
+	import infoShare from '@/pages/modify/modInfo/infoShare'  //出资信息 --股东（发起人）？
+	import infoPermit from '@/pages/modify/modInfo/infoPermit'  //许可信息
+	import infoLiaison from '@/pages/modify/modInfo/infoLiaison'  //联络员
+	import infoAuthor from '@/pages/modify/modInfo/infoAuthor'  //委托授权
+	import infoLicence from '@/pages/modify/modInfo/infoLicence'  //多证合一
+	import infoStuff from '@/pages/modify/modInfo/infoStuff'  //附件信息--提交材料？
 	import MescrollMixin from "@/components/com-mescroll-view/js/mescroll-mixins.js";
 	export default {
 		mixins: [MescrollMixin],
-		components:{infoChange,infoLegal,infoMember,infoLiaison,infoPermit,infoAuthor,infoLicence},
+		components:{infoChange,infoLegal,infoMember,infoShare,infoPermit,infoLiaison,infoAuthor,infoLicence,infoStuff},
 		data() {
 			return {
 				enums:{
@@ -145,8 +151,8 @@
 				currentNav:0,
 				currentMenu:0,
 				childrenHasSave:false,
-				tabs:['企业信息','办理意见'],
-				menus:['变更事项','法定代表人','人员信息','联络员信息','许可信息','授权委托','多证合一','附件信息'],
+				tabs:['变更申请','办理意见'],
+				menus:['变更事项','法定代表人','人员信息','出资信息','许可信息','联络员','授权委托','多证合一','附件信息'],
 				picker: ['同意', '驳回'],
 				infoSuggest:{
 					member:'王晓静',
