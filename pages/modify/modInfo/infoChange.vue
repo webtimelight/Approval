@@ -4,7 +4,6 @@
 		<cu-custom v-if="!hideNav" class="custom-nav" bgColor="bg-gradual-blue" :isBack="true">
 		    <block slot="backText">返回</block>
 		    <block slot="content">变更-申请书-变更事项</block>
-			<view slot="right" class="ope flex align-center" @click="save"><text class="icon fa fa-save"></text>保存</view>
 		</cu-custom>
 		<!-- 主体区域 -->
 		<view class="main-wrap">
@@ -20,13 +19,12 @@
 								<text class="cuIcon-title text-blue"></text>
 								<text class="text-blue">名称</text>
 							</view>
-							<text class="icon text-orange cuIcon-questionfill f-20"></text>
 						</view>
 						<com-form-item label="原登记" >
-							<input disabled class="form-input" placeholder-class="placeholder" v-model="oldInfo.entName" placeholder="" />
+							<view class="info">{{oldInfo.entName}}</view>
 						</com-form-item>
 						<com-form-item label="变更申请">
-							<input class="form-input" placeholder-class="placeholder" v-model="newInfo.entName" placeholder="填写企业名称" />
+							<view class="info">{{newInfo.entName}}</view>
 						</com-form-item>
 					</view>
 					<!-- 住所 -->
@@ -36,13 +34,12 @@
 								<text class="cuIcon-title text-blue"></text>
 								<text class="text-blue">住所</text>
 							</view>
-							<text class="icon text-orange cuIcon-questionfill f-20"></text>
 						</view>
-						<com-form-item label="原登记" >
-							<input disabled class="form-input" placeholder-class="placeholder" v-model="oldInfo.address" placeholder="" />
+						<com-form-item label="原登记">
+							<view class="info">{{oldInfo.address}}</view>
 						</com-form-item>
 						<com-form-item label="变更申请">
-							<input class="form-input" placeholder-class="placeholder" v-model="newInfo.address" placeholder="填写企业住所" />
+							<view class="info">{{newInfo.address}}</view>
 						</com-form-item>
 					</view>
 					<!-- 管辖机关 -->
@@ -52,13 +49,12 @@
 								<text class="cuIcon-title text-blue"></text>
 								<text class="text-blue">管辖机关</text>
 							</view>
-							<text class="icon text-orange cuIcon-questionfill f-20"></text>
 						</view>
 						<com-form-item label="原登记" >
-							<input disabled class="form-input" placeholder-class="placeholder" v-model="oldInfo.manCom" placeholder="" />
+							<view class="info">{{oldInfo.manCom}}</view>
 						</com-form-item>
 						<com-form-item label="变更申请">
-							<input class="form-input" placeholder-class="placeholder" v-model="newInfo.manCom" placeholder="填写管辖机关" />
+							<view class="info">{{newInfo.manCom}}</view>
 						</com-form-item>
 					</view>
 					<!-- 属地监管工商所 -->
@@ -68,13 +64,12 @@
 								<text class="cuIcon-title text-blue"></text>
 								<text class="text-blue">属地监管工商所</text>
 							</view>
-							<text class="icon text-orange cuIcon-questionfill f-20"></text>
 						</view>
 						<com-form-item label="原登记" >
-							<input disabled class="form-input" placeholder-class="placeholder" v-model="oldInfo.supervise" placeholder="" />
+							<view class="info">{{oldInfo.supervise}}</view>
 						</com-form-item>
 						<com-form-item label="变更申请">
-							<input class="form-input" placeholder-class="placeholder" v-model="newInfo.supervise" placeholder="填写属地监管工商所" />
+							<view class="info">{{newInfo.supervise}}</view>
 						</com-form-item>
 					</view>
 					<!-- 邮政编码 -->
@@ -84,13 +79,12 @@
 								<text class="cuIcon-title text-blue"></text>
 								<text class="text-blue">邮政编码</text>
 							</view>
-							<text class="icon text-orange cuIcon-questionfill f-20"></text>
 						</view>
 						<com-form-item label="原登记" >
-							<input disabled class="form-input" placeholder-class="placeholder" v-model="oldInfo.postNum" placeholder="" />
+							<view class="info">{{oldInfo.postNum}}</view>
 						</com-form-item>
 						<com-form-item label="变更申请">
-							<input class="form-input" placeholder-class="placeholder" v-model="newInfo.postNum" placeholder="填写邮政编码" />
+							<view class="info">{{newInfo.postNum}}</view>
 						</com-form-item>
 					</view>
 					<!-- 联系电话 -->
@@ -100,13 +94,12 @@
 								<text class="cuIcon-title text-blue"></text>
 								<text class="text-blue">联系电话</text>
 							</view>
-							<text class="icon text-orange cuIcon-questionfill f-20"></text>
 						</view>
 						<com-form-item label="原登记" >
-							<input disabled class="form-input" placeholder-class="placeholder" v-model="oldInfo.phone" placeholder="" />
+							<view class="info">{{oldInfo.phone}}</view>
 						</com-form-item>
 						<com-form-item label="变更申请">
-							<input class="form-input" placeholder-class="placeholder" v-model="newInfo.phone" placeholder="填写联系电话" />
+							<view class="info">{{newInfo.phone}}</view>
 						</com-form-item>
 					</view>
 					<!-- 注册资本 -->
@@ -116,13 +109,12 @@
 								<text class="cuIcon-title text-blue"></text>
 								<text class="text-blue">注册资本</text>
 							</view>
-							<text class="icon text-orange cuIcon-questionfill f-20"></text>
 						</view>
 						<com-form-item label="原登记" >
-							<input disabled class="form-input" placeholder-class="placeholder" v-model="oldInfo.capital" placeholder="" />
+							<view class="info">{{oldInfo.capital}}</view>
 						</com-form-item>
 						<com-form-item label="变更申请">
-							<input class="form-input" placeholder-class="placeholder" v-model="newInfo.capital" placeholder="填写注册资本" />
+							<view class="info">{{newInfo.capital}}</view>
 						</com-form-item>
 					</view>
 					<!-- 企业类型 -->
@@ -132,13 +124,12 @@
 								<text class="cuIcon-title text-blue"></text>
 								<text class="text-blue">企业类型</text>
 							</view>
-							<text class="icon text-orange cuIcon-questionfill f-20"></text>
 						</view>
 						<com-form-item label="原登记" >
-							<input disabled class="form-input" placeholder-class="placeholder" v-model="oldInfo.entType" placeholder="" />
+							<view class="info">{{oldInfo.entType}}</view>
 						</com-form-item>
 						<com-form-item label="变更申请">
-							<input class="form-input" placeholder-class="placeholder" v-model="newInfo.entType" placeholder="填写企业类型" />
+							<view class="info">{{newInfo.entType}}</view>
 						</com-form-item>
 					</view>
 					<!-- 经营范围 -->
@@ -148,13 +139,12 @@
 								<text class="cuIcon-title text-blue"></text>
 								<text class="text-blue">经营范围</text>
 							</view>
-							<text class="icon text-orange cuIcon-questionfill f-20"></text>
 						</view>
 						<com-form-item label="原登记" class="align-self">
-							<textarea disabled class="textarea"  :maxlength="2000" placeholder-class="placeholder"  v-model="oldInfo.nature" placeholder=""></textarea>
+							<view class="info">{{oldInfo.nature}}</view>
 						</com-form-item>
 						<com-form-item label="变更申请" class="align-self">
-							<textarea class="textarea" auto-height  :maxlength="2000" placeholder-class="placeholder"  v-model="newInfo.nature" placeholder="填写经营范围"></textarea>
+							<view class="info">{{newInfo.nature}}</view>
 						</com-form-item>
 					</view>
 				</com-form>
@@ -204,9 +194,6 @@
 		mounted () {
 		},
 		methods: {
-			save(){
-				console.log(this.newInfo)
-			}
 		}
 	}
 </script>
