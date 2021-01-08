@@ -4,7 +4,6 @@
 		<cu-custom v-if="!hideNav" class="custom-nav" bgColor="bg-gradual-blue" :isBack="true">
 		    <block slot="backText">返回</block>
 		    <block slot="content">设立-多证合一</block>
-			<!-- <view slot="right" class="ope flex align-center" @click="save"><text class="icon fa fa-save"></text>保存</view> -->
 		</cu-custom>
 		<!-- 主体区域 -->
 		<view class="main-wrap">
@@ -12,18 +11,14 @@
 			<com-quick-skeleton :show="skeletonShow" bgColor="#f6f6f6" ></com-quick-skeleton>
 			<!-- 内容区域 -->
 				<view class="list">
-					<view class="list-item" v-for="(v,i) in list" :key="i" style="margin: 0;">
+					<view class="list-item" v-for="(v,i) in list" :key="i" style="margin: 0 0 30rpx 0;">
 						<view class="header justify-between align-center solid-bottom">
-							<text class="cuIcon-title text-blue"></text>
-							<text class="text-blue">事项名称：{{v.itemName}}</text>
-							<!-- <view class="">事项名称：{{v.itemName}}</view> -->
+							<text class="f-16 cuIcon-newsfill margin-right-sm text-blue"></text>
+							<text>{{v.itemName}}</text>
 						</view>
 						<view class="middle solid-bottom">
-							<view class="item text-cut">所属部门：{{v.department}}</view>
-							<view class="item text-cut flex">
-								备注：{{v.remark}}
-								<!-- <button @click="btn" v-if="v.remark==''?'false':'true'" style="margin-left: 20rpx;" class="cu-btn bg-orange shadow round sm">查看详情</button> -->
-							</view>
+							<view class="item text-gray f-14">所属部门：{{v.department}}</view>
+							<view class="item text-gray f-14">备注：{{v.remark}}{{v.department}}</view>
 						</view>
 					</view>
 				</view>

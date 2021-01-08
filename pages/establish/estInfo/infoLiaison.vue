@@ -4,7 +4,6 @@
 		<cu-custom v-if="!hideNav" class="custom-nav" bgColor="bg-gradual-blue" :isBack="true">
 		    <block slot="backText">返回</block>
 		    <block slot="content">设立-联络员信息</block>
-			<!-- <view slot="right" class="ope flex align-center" @click="save"><text class="icon fa fa-save"></text>保存</view> -->
 		</cu-custom>
 		<!-- 主体区域 -->
 		<view class="main-wrap">
@@ -17,11 +16,11 @@
 							<view class="">姓名：{{v.name}}</view>
 						</view>
 						<view class="middle solid-bottom">
-							<view class="item text-cut">固定电话：{{v.telephone}}</view>
-							<view class="item text-cut">移动电话：{{v.mobile}}</view>
-							<view class="item text-cut">电子邮箱：{{v.email}}</view>
-							<view class="item text-cut">证件类型：{{v.certificateType}}</view>
-							<view class="item text-cut">证件号码：{{v.cardNum}}</view>
+							<view class="item text-gray">固定电话：{{v.telephone}}</view>
+							<view class="item text-gray">移动电话：{{v.mobile}}</view>
+							<view class="item text-gray">电子邮箱：{{v.email}}</view>
+							<view class="item text-gray">证件类型：{{v.certificateType}}</view>
+							<view class="item text-gray">证件号码：{{v.cardNum}}</view>
 						</view>
 					</view>
 				</view>

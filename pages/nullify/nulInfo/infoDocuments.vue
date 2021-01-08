@@ -3,7 +3,8 @@
 		<!-- 导航栏 -->
 		<cu-custom v-if="!hideNav" class="custom-nav" bgColor="bg-gradual-blue" :isBack="true">
 		    <block slot="backText">返回</block>
-		    <block slot="content">设立-材料-股东</block>
+		    <block slot="content">注销-多证合一</block>
+			<!-- <view slot="right" class="ope flex align-center" @click="save"><text class="icon fa fa-save"></text>保存</view> -->
 		</cu-custom>
 		<!-- 主体区域 -->
 		<view class="main-wrap">
@@ -12,14 +13,16 @@
 			<!-- 内容区域 -->
 				<view class="list">
 					<view class="list-item" v-for="(v,i) in list" :key="i" style="margin: 0 0 30rpx 0;">
-						<view class="header flex justify-between align-center solid-bottom">
-							<view class="">（投资人）名称或姓名：{{v.name}}</view>
+						<view class="header justify-between align-center solid-bottom">
+							<text class="f-16 cuIcon-newsfill margin-right-sm text-orange"></text>
+							<text class="text-orange">{{v.itemName}}</text>
 						</view>
 						<view class="middle solid-bottom">
-							<view class="item text-gray">投资人类型：{{v.typeInvestor}}</view>
-							<view class="item text-gray">认缴出资额(万元)：{{v.money}}</view>
-							<view class="item text-gray">认缴出资比例(%)：{{v.proportion}}</view>
-							<view class="item text-gray">出资时间：{{v.time}}</view>
+							<view class="item text-gray">所属部门：{{v.department}}</view>
+							<view class="item text-gray flex">
+								备注：{{v.remark}}
+								<!-- <button @click="btn" v-if="v.remark==''?'false':'true'" style="margin-left: 20rpx;" class="cu-btn bg-orange shadow round sm">查看详情</button> -->
+							</view>
 						</view>
 					</view>
 				</view>
@@ -42,41 +45,27 @@
 		data() {
 			return {
 				skeletonShow:false,
+				hide:true,
 				// 基本信息
 				list:[
 					{	
-						typeInvestor:'自然人股东',
-						name:'刘长青',
-						money:'600',
-						time:'2020-12-1',
-						proportion:'12%',
+						itemName:'税务登记证',
+						department:'税务部门',
+						remark:'信息采集',
 					},{
-						typeInvestor:'自然人股东',
-						name:'齐贵峰',
-						money:'600',
-						time:'2020-12-1',
-						proportion:'12%',
+						itemName:'公章刻制备案',
+						department:'公安部门',
+						remark:'信息采集',
 					},{
-						typeInvestor:'自然人股东',
-						name:'周敏',
-						money:'600',
-						time:'2020-12-1',
-						proportion:'12%',
-					},
-					{
-						typeInvestor:'自然人股东',
-						name:'王文利',
-						money:'600',
-						time:'2020-12-1',
-						proportion:'12%',
-					},
-					{
-						typeInvestor:'自然人股东',
-						name:'赵传兴',
-						money:'2600',
-						time:'2020-12-1',
-						proportion:'52%',
-					},
+						itemName:'单位办理住房公积金缴存登记',
+						department:'住建部门',
+						remark:'',
+					},{
+						itemName:'废旧金属收购业备案',
+						department:'公安部门',
+						remark:'',
+					}
+					
 				]
 				
 			}
@@ -84,8 +73,13 @@
 		mounted () {
 			
 		},
-		methods: {
 		
+		methods: {
+			btn() {
+				uni.navigateTo({
+					url: "/pages/establish/estInfo/infoDetail"
+				});
+			},
 		}
 	}
 </script>

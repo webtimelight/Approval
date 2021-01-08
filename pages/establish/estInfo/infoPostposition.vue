@@ -4,7 +4,6 @@
 		<cu-custom v-if="!hideNav" class="custom-nav" bgColor="bg-gradual-blue" :isBack="true">
 		    <block slot="backText">返回</block>
 		    <block slot="content">设立-后置审批</block>
-			<!-- <view slot="right" class="ope flex align-center" @click="save"><text class="icon fa fa-save"></text>保存</view> -->
 		</cu-custom>
 		<!-- 主体区域 -->
 		<view class="main-wrap">
@@ -12,15 +11,15 @@
 			<com-quick-skeleton :show="skeletonShow" bgColor="#f6f6f6" ></com-quick-skeleton>
 			<!-- 内容区域 -->
 				<view class="list">
-					<view class="list-item" v-for="(v,i) in list" :key="i" style="margin: 0;">
+					<view class="list-item" v-for="(v,i) in list" :key="i" style="margin: 0 0 30rpx 0;">
 						<view @click="select">
 							<view class="header justify-between align-center solid-bottom">
 								<text class="cuIcon-title text-blue"></text>
 								<text class="text-blue">审批事项名称：</text>{{v.name}}
 							</view>
 							<view class="middle solid-bottom">
-								<view class="item ">实施机关：{{v.office}}</view>
-								<view class="item ">是否证照分离项：{{v.whether}}</view>
+								<view class="item text-gray">实施机关：{{v.office}}</view>
+								<view class="item text-gray">是否证照分离项：{{v.whether}}</view>
 							</view>
 						</view>
 					</view>

@@ -4,7 +4,6 @@
 		<cu-custom v-if="!hideNav" class="custom-nav" bgColor="bg-gradual-blue" :isBack="true">
 		    <block slot="backText">返回</block>
 		    <block slot="content">设立材料-基本信息</block>
-			<!-- <view slot="right" class="ope flex align-center" @click="save"><text class="icon fa fa-save"></text>保存</view> -->
 		</cu-custom>
 		<!-- 主体区域 -->
 		<view class="main-wrap">
@@ -29,22 +28,9 @@
 					
 					<com-form-item class="margin-top" label="住所">
 						<view class="block-group">
-							<view class="block-item" @click="handleTap('cityPicker')">
-								<view class="placeholder picker" v-if="!dataBase.cityLabel">选择省-市-区</view>
-								<view class="picker" v-else>{{dataBase.cityLabel}}</view>
-								<com-picker ref="cityPicker"
-								  v-model="dataBase.cityValue"
-								  mode="multiSelector"
-								  :column-num="6"
-								  :list="cityList"
-								  :level="3"
-								  :dataset="{ name: 'cityLabel' }"
-								  @change="handleChange"
-								  @confirm="handleConfirm"
-								  @cancel="handleCancel">
-								</com-picker>
-							</view>
+							
 							<view class="block-item">
+								<view>{{dataBase.address1}}</view>
 								<view>{{dataBase.address}}</view>
 							</view>
 						</view>
@@ -61,21 +47,7 @@
 					</view>
 					<com-form-item label="法律文书送达地址" label-position="top">
 						<view class="block-group">
-							<view class="block-item" @click="handleTap('cityPicker2')">
-								<view class="placeholder picker" v-if="!dataBase.cityLabel2">选择省-市-区</view>
-								<view class="picker" v-else>{{dataBase.cityLabel2}}</view>
-								<com-picker ref="cityPicker2"
-								  v-model="dataBase.cityValue2"
-								  mode="multiSelector"
-								  :column-num="6"
-								  :list="cityList"
-								  :level="3"
-								  :dataset="{ name: 'cityLabel2' }"
-								  @change="handleChange"
-								  @confirm="handleConfirm"
-								  @cancel="handleCancel">
-								</com-picker>
-							</view>
+							<view>{{dataBase.address1}}</view>
 							<view class="block-item">
 								<view>{{dataBase.address2}}</view>
 							</view>
@@ -211,6 +183,7 @@
 					cityValue: ["370000","370100","370102"],//默认值
 					cityLabel:'',
 					address:'东风街道36号',
+					address1:'山东省-济南市-历下区',
 					addressDetail:'济南市历下区后宰门街36-1号',
 					/* 法律文书 */
 					cityValue2:[],//默认值

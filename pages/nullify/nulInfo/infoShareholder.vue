@@ -12,19 +12,16 @@
 			<!-- 内容区域 -->
 			<view class="com-form-container">
 				<com-form ref="form" :label-style="{'flex-basis':'400rpx'}">
-					<com-form-item label="领照方式">
-						<view class="info">{{enums.way[author.way].name}}</view>
-					</com-form-item>
 					<com-form-item label="指定代表/委托代理人">
 						<view class="info">{{author.name}}</view>
 					</com-form-item>
 				</com-form>	
 				
 				<!-- 委托权限 -->
-				<view class="cu-bar bg-white solid-bottom margin-top">
+				<view class="cu-bar bg-white solid-bottom ">
 					<view class="action">
-						<text class="cuIcon-title text-blue"></text>
-						<text class="text-blue">委托权限</text>
+						<text class="cuIcon-title text-orange"></text>
+						<text class="text-orange">委托权限</text>
 					</view>
 				</view>
 				<view class="lim-list flex-sub bg-white">
@@ -39,10 +36,10 @@
 				</view>
 				
 				<!-- 委托人信息 -->
-				<view class="cu-bar bg-white solid-bottom margin-top">
+				<view class="cu-bar bg-white solid-bottom ">
 					<view class="action">
-						<text class="cuIcon-title text-blue"></text>
-						<text class="text-blue">指定代表或委托代理人信息</text>
+						<text class="cuIcon-title text-orange"></text>
+						<text class="text-orange">指定代表或委托代理人信息</text>
 					</view>
 				</view>
 				<com-form ref="form" :label-style="{'flex-basis':'240rpx'}">
