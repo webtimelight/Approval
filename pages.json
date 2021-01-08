@@ -294,6 +294,24 @@
             }
             
         }
+        ,{
+            "path" : "pages/modify/modInfo/infoAfter",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "变更-后置审批",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/public/approvalList",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "审批事项列表",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
     "globalStyle": {
         "navigationBarTextStyle": "white",
