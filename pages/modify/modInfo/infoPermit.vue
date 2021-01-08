@@ -50,7 +50,6 @@
 			return {
 				// 字典
 				enums:{
-					process:[{ value: '0',name: '受理'},{value: '1',name: '核准'}],
 					post:[{ value: '0',name: '监事'},{ value: '1',name: '经理'},{ value: '2',name: '执行董事'}],
 					cardType:[{ value: '0',name: '中华人民共和国居民身份证'},{ value: '1',name: '护照'}]
 				},

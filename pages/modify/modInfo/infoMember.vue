@@ -10,24 +10,78 @@
 			<!-- 列表骨架 -->
 			<com-quick-skeleton :show="skeletonShow" bgColor="#f6f6f6" loading="flush" template="list"></com-quick-skeleton>
 			<!-- 列表 -->
-			<com-mescroll-view ref="mescrollRef" @init="mescrollInit" :fixed="false" height="auto" :down="downOption" :up="upOption" @down="downCallback" @up="upCallback">
-				<view class="list">
+			<view class="list-wrap">
+				<!-- 变更前 -->
+				<view class="cu-bar bg-white solid-bottom">
+					<view class="action">
+						<text class="cuIcon-title text-blue"></text>
+						<text class="text-blue">变更前</text>
+					</view>
+				</view>
+				<view class="flat-list">
 					<view class="list-item" v-for="(v,i) in list" :key="i" >
-						<view class="header flex justify-between align-center solid-bottom">
-							<view class="left text-cut">{{v.name}}</view>
-							<view class="right cu-tag bg-green radius">{{enums.post[v.post].name}}</view>
+						<view class="header flex justify-between align-center solid-bottom" @click="showMore('list',i)">
+							<view class="left text-cut">
+								<text class="margin-right">{{v.name}}</text>
+								<text class="cu-tag line-green radius">{{enums.post[v.post].name}}</text>
+							</view>
+							<view class="text-center f-14 text-gray flex align-center">
+								<view v-if="v.show"><text class="lg text-gray cuIcon-fold"></text></view>
+								<view v-else><text class="lg text-gray cuIcon-unfold"></text></view>
+							</view>
 						</view>
-						<view class="middle solid-bottom">
-							<block :id="'show'+i"  v-if="showDetail">
-								<view class="item text-cut">证件类型：{{enums.cardType[v.cardType].name}}</view>
-								<view class="item text-cut">证件号码：{{v.cardNum}}</view>
-								<view class="item text-cut">移动电话：{{v.mobile}}</view>
-							</block>
-							<view class="" @click="showMore" data-show="true">展开</view>
+						<view class="middle solid-bottom" v-if="v.show">
+							<view class="item text-cut flex justify-between align-center">
+								<text class="text-gray">证件类型</text>
+								<text>{{enums.cardType[v.cardType].name}}</text>
+							</view>
+							<view class="item text-cut flex justify-between align-center">
+								<text class="text-gray">证件号码</text>
+								<text>{{v.cardNum}}</text>
+							</view>
+							<view class="item text-cut flex justify-between align-center">
+								<text class="text-gray">移动电话</text>
+								<text>{{v.mobile}}</text>
+							</view>
 						</view>
 					</view>
 				</view>
-			</com-mescroll-view>
+				<!-- 变更后 -->
+				<view class="cu-bar bg-white solid-bottom margin-top">
+					<view class="action">
+						<text class="cuIcon-title text-orange"></text>
+						<text class="text-orange">变更后</text>
+					</view>
+				</view>
+				<view class="flat-list">
+					<view class="list-item" v-for="(v,i) in newList" :key="i" >
+						<view class="header flex justify-between align-center solid-bottom" @click="showMore('newList',i)">
+							<view class="left text-cut">
+								<text class="margin-right">{{v.name}}</text>
+								<text class="cu-tag line-green radius">{{enums.post[v.post].name}}</text>
+							</view>
+							<view class="text-center f-14 text-gray flex align-center">
+								<view v-if="v.show"><text class="lg text-gray cuIcon-fold"></text></view>
+								<view v-else><text class="lg text-gray cuIcon-unfold"></text></view>
+							</view>
+						</view>
+						<view class="middle solid-bottom" v-if="v.show">
+							<view class="item text-cut flex justify-between align-center">
+								<text class="text-gray">证件类型</text>
+								<text>{{enums.cardType[v.cardType].name}}</text>
+							</view>
+							<view class="item text-cut flex justify-between align-center">
+								<text class="text-gray">证件号码</text>
+								<text>{{v.cardNum}}</text>
+							</view>
+							<view class="item text-cut flex justify-between align-center">
+								<text class="text-gray">移动电话</text>
+								<text>{{v.mobile}}</text>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
 		</view>
 	</view>
 </template>
@@ -55,54 +109,61 @@
 				showDetail:false,
 				// 字典
 				enums:{
-					process:[{ value: '0',name: '受理'},{value: '1',name: '核准'}],
 					post:[{ value: '0',name: '监事'},{ value: '1',name: '经理'},{ value: '2',name: '执行董事'}],
 					cardType:[{ value: '0',name: '中华人民共和国居民身份证'},{ value: '1',name: '护照'}]
 				},
-				skeletonShow:true,
-				list:[],
-				// 下拉刷新的配置
-				downOption:{
-					auto:true,//默认true
-				},
-				// 上拉加载的配置(可选)
-				upOption: {
-					auto: false,//默认true
-					page: {
-						size: 4 // 每页数据,默认10
-					},
-					noMoreSize: 4, // 列表的总数大于等于n条才显示'-- END --'的提示
-					textNoMore:'-- 暂无更多内容--',
-					empty: {
-						// icon:'/static/image/nodata.png',
-						tip: '暂无相关内容'
-					}
-				}
+				skeletonShow:false,
+				list:[{
+					name:'陈旭峰',
+					post:'0',
+					cardType:'0',
+					cardNum:'370108197803184837',
+					mobile:'15165012939'
+				},{
+					name:'黄贤安',
+					post:'1',
+					cardType:'0',
+					cardNum:'370108197803184837',
+					mobile:'15865012932'
+				},{
+					name:'沈杰',
+					post:'2',
+					cardType:'0',
+					cardNum:'370108197803184837',
+					mobile:'15165012939'
+				}],
+				newList:[{
+					name:'陈旭峰',
+					post:'0',
+					cardType:'0',
+					cardNum:'370108197803184837',
+					mobile:'15165012939'
+				},{
+					name:'黄贤安',
+					post:'1',
+					cardType:'0',
+					cardNum:'370108197803184837',
+					mobile:'15865012932'
+				},{
+					name:'沈杰',
+					post:'2',
+					cardType:'0',
+					cardNum:'370108197803184837',
+					mobile:'15165012939'
+				}]
 			}
 		},
 		async mounted() {
+			this.list.forEach(item=>{
+				return this.$set(item,'show',false)
+			}),
+			this.newList.forEach(item=>{
+				return this.$set(item,'show',false)
+			})
 		},
 		methods: {
-			showMore(e){
-				console.log(e.currentTarget.dataset.show)
-			},
-			/*下拉刷新 */
-			downCallback(){
-				this.mescroll.resetUpScroll()
-			},
-			/*上滑加载*/
-			async upCallback(page){
-				//实际请求
-				/* this.$http({
-					url:this.api,
-					data:{page:page.num,rows:page.size,...this.query}
-				}); */
-				/*模拟接口*/
-				const {data:res}=await API.apiMemList();
-				if(page.num==1){this.list=[]};
-				this.list=this.list.concat(res.results);
-				this.mescroll.endBySize(res.results.length, res.page.totalnum);
-				this.skeletonShow=false;
+			showMore(target,i){
+				this[target][i].show=!this[target][i].show
 			}
 		}
 	}
@@ -111,19 +172,12 @@
 <style scoped lang="scss">
 /* 布局 */	
 page,.page-wrap{height: 100%;}
-.page-wrap{
-	display: flex;flex-direction: column;
-	.main-wrap{
-		flex: 1;
-		overflow: hidden;
-		position: relative;
-	}
-}	
 /* 列表样式 */
-.list{
-	padding:30rpx 30rpx 30rpx 30rpx;
+.flat-list{
+	padding:0 30rpx;
+	background-color: #ffffff;
 	.list-item{
-		background: #ffffff;border-radius: 12rpx;padding:0 30rpx;margin:0 0 30rpx 0;
+		background: #ffffff;padding:0;
 		.header{
 			padding: 24rpx 0;
 			.left{font-size: 30rpx;}

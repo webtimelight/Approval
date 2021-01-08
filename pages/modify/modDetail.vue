@@ -53,11 +53,11 @@
 				</scroll-view>
 				<!-- 提交材料 -->
 				<scroll-view v-show="currentMenu==8" class="scroll-box" scroll-y>
-					提交材料
+					<info-stuff hideNav ref="info8"></info-stuff>
 				</scroll-view>
 				<!-- 人员实名认证 -->
 				<scroll-view v-show="currentMenu==9" class="scroll-box" scroll-y>
-					人员实名认证
+					<info-ident hideNav ref="info9"></info-ident>
 				</scroll-view>
 			</view>
 			<!-- ============办理意见============ -->
@@ -144,10 +144,12 @@
 	import infoFinance from '@/pages/modify/modInfo/infoFinance'  //财务负责人
 	import infoAuthor from '@/pages/modify/modInfo/infoAuthor'  //授权委托
 	import infoLicence from '@/pages/modify/modInfo/infoLicence'  //多证合一
+	import infoStuff from '@/pages/modify/modInfo/infoStuff'  //提交材料
+	import infoIdent from '@/pages/modify/modInfo/infoIdent'  //人员实名认证
 	import MescrollMixin from "@/components/com-mescroll-view/js/mescroll-mixins.js";
 	export default {
 		mixins: [MescrollMixin],
-		components:{infoChange,infoLegal,infoMember,infoShare,infoLiaison,infoFinance,infoAuthor,infoLicence},
+		components:{infoChange,infoLegal,infoMember,infoShare,infoLiaison,infoFinance,infoAuthor,infoLicence,infoStuff,infoIdent},
 		data() {
 			return {
 				enums:{
@@ -157,7 +159,7 @@
 				currentMenu:1,
 				childrenHasSave:false,
 				tabs:['申请书','办理意见'],
-				menus:['变更事项','法定代表人','董事、监事、经理信息','股东（发起人）','联络员信息','财务负责人','授权委托','多证合一','提交材料','人员实名认证'],
+				menus:['变更事项','法定代表人','董事、监事、经理','股东（发起人）','联络员','财务负责人','授权委托','多证合一','提交材料','人员实名认证'],
 				picker: ['同意', '驳回'],
 				infoSuggest:{
 					member:'王晓静',

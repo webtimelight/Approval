@@ -276,6 +276,24 @@
                 "enablePullDownRefresh": false
             }
         }
+        ,{
+            "path" : "pages/modify/modInfo/infoStuff",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "变更-提交材料",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/modify/modInfo/infoIdent",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "变更-人员实名认证",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
     "globalStyle": {
         "navigationBarTextStyle": "white",
