@@ -101,7 +101,6 @@
 				},
 				skeletonShow:true,
 				drawerShow: false,
-				totalnum:8,
 				query:{
 					ent_name:'',
 					code_num:'',

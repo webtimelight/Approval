@@ -4,7 +4,6 @@
 		<cu-custom class="custom-nav" bgColor="bg-gradual-blue" :isBack="true">
 		    <block slot="backText">返回</block>
 		    <block slot="content">变更登记详情</block>
-			<view slot="right" v-if="currentNav==0&&childrenHasSave" class="ope flex align-center" @click="saveForm"><text class="icon fa fa-save" @click="saveForm"></text>保存</view>
 		</cu-custom>
 		
 		<!-- 选项卡 -->
@@ -28,17 +27,37 @@
 				<scroll-view v-show="currentMenu==1" class="scroll-box" scroll-y>
 					<info-legal hideNav ref="info1"></info-legal>
 				</scroll-view>
-				<!-- 董事、监事、经理信息 -->
+				<!-- 董事监事经理信息 -->
 				<scroll-view v-show="currentMenu==2" class="scroll-box" scroll-y>
-					董事、监事、经理信息
+					<info-member hideNav ref="info2"></info-member>
+				</scroll-view>
+				<!-- 股东（发起人） -->
+				<scroll-view v-show="currentMenu==3" class="scroll-box" scroll-y>
+					<info-share hideNav ref="info3"></info-share>
+				</scroll-view>
+				<!-- 联络员信息 -->
+				<scroll-view v-show="currentMenu==4" class="scroll-box" scroll-y>
+					<info-liaison hideNav ref="info4"></info-liaison>
+				</scroll-view>
+				<!-- 财务发起人 -->
+				<scroll-view v-show="currentMenu==5" class="scroll-box" scroll-y>
+					<info-finance hideNav ref="info5"></info-finance>
 				</scroll-view>
 				<!-- 授权委托 -->
-				<scroll-view v-show="currentMenu==3" class="scroll-box" scroll-y>
-					授权委托
+				<scroll-view v-show="currentMenu==6" class="scroll-box" scroll-y>
+					<info-author hideNav ref="info6"></info-author>
+				</scroll-view>
+				<!-- 多证合一 -->
+				<scroll-view v-show="currentMenu==7" class="scroll-box" scroll-y>
+					<info-licence hideNav ref="info7"></info-licence>
 				</scroll-view>
 				<!-- 提交材料 -->
-				<scroll-view v-show="currentMenu==4" class="scroll-box" scroll-y>
+				<scroll-view v-show="currentMenu==8" class="scroll-box" scroll-y>
 					提交材料
+				</scroll-view>
+				<!-- 人员实名认证 -->
+				<scroll-view v-show="currentMenu==9" class="scroll-box" scroll-y>
+					人员实名认证
 				</scroll-view>
 			</view>
 			<!-- ============办理意见============ -->
@@ -117,12 +136,18 @@
 
 <script>
 	import API from "@/mock/mock.js"
-	import infoChange from '@/pages/modify/modInfo/infoChange'
-	import infoLegal from '@/pages/modify/modInfo/infoLegal'
+	import infoChange from '@/pages/modify/modInfo/infoChange'  //变更事项
+	import infoLegal from '@/pages/modify/modInfo/infoLegal'   //法定代表人
+	import infoMember from '@/pages/modify/modInfo/infoMember'  //董事、监事、经理信息
+	import infoShare from '@/pages/modify/modInfo/infoShare'  //股东（发起人）
+	import infoLiaison from '@/pages/modify/modInfo/infoLiaison'  //联络员信息
+	import infoFinance from '@/pages/modify/modInfo/infoFinance'  //财务负责人
+	import infoAuthor from '@/pages/modify/modInfo/infoAuthor'  //授权委托
+	import infoLicence from '@/pages/modify/modInfo/infoLicence'  //多证合一
 	import MescrollMixin from "@/components/com-mescroll-view/js/mescroll-mixins.js";
 	export default {
 		mixins: [MescrollMixin],
-		components:{infoChange,infoLegal},
+		components:{infoChange,infoLegal,infoMember,infoShare,infoLiaison,infoFinance,infoAuthor,infoLicence},
 		data() {
 			return {
 				enums:{
@@ -132,7 +157,7 @@
 				currentMenu:1,
 				childrenHasSave:false,
 				tabs:['申请书','办理意见'],
-				menus:['变更事项','法定代表人','董事、监事、经理信息','授权委托','提交材料'],
+				menus:['变更事项','法定代表人','董事、监事、经理信息','股东（发起人）','联络员信息','财务负责人','授权委托','多证合一','提交材料','人员实名认证'],
 				picker: ['同意', '驳回'],
 				infoSuggest:{
 					member:'王晓静',
@@ -160,31 +185,8 @@
 			}
 		},
 		mounted() {
-			this.hasSave()
 		},
 		methods: {
-			/* 判断有子组件无保存 */
-			hasSave(){
-				let childRef=this.$refs[`info${this.currentMenu}`];
-				if (!childRef){
-					return this.childrenHasSave=false
-				}
-				console.log(this.$refs)
-				if(childRef.save){
-					this.childrenHasSave=true
-				}else{
-					this.childrenHasSave=false
-				}
-			},
-			/* 右上角保存 */
-			saveForm(){
-				let childRef=this.$refs[`info${this.currentMenu}`];
-				childRef.save()
-			},
-			/* 表单操作 */
-			PickerChange(e,val) {
-				this.infoSuggest[val] = e.detail.value
-			},
 			/*上滑加载*/
 			async upCallback(page){
 				//实际请求
@@ -247,6 +249,11 @@ page{height: 100%}
 			height: 100%;display: flex;flex-direction: column;
 			.scroll-box{
 				flex:1;overflow: hidden;
+				/deep/ {
+					.list{
+						padding: 10rpx 30rpx 10rpx 30rpx;
+					}
+				}
 			}
 		}
 		

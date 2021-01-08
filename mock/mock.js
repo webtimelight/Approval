@@ -276,10 +276,88 @@ function apiSugList(pageNum, pageSize) {
 	})
 };
 
+// 人员列表（变更）
+function apiMemList(pageNum, pageSize) {
+	return new Promise((resolve, reject)=>{
+		const XHR={
+		statusCode:200,
+		errMsg: "request:ok",
+		data:{ 
+		  "page":{"totalpage":2,"currentpage":1,"totalnum":10}, 
+		  "results":[{
+					name:'陈旭峰',
+					post:'0',
+					cardType:'0',
+					cardNum:'370108197803184837',
+					mobile:'15165012939'
+				},{
+					name:'黄贤安',
+					post:'1',
+					cardType:'0',
+					cardNum:'370108197803184837',
+					mobile:'15865012932'
+				},{
+					name:'沈杰',
+					post:'2',
+					cardType:'0',
+					cardNum:'370108197803184837',
+					mobile:'15165012939'
+				}]
+			}		
+		}
+		//延时一秒,模拟联网
+		setTimeout(function() {
+			try {
+				resolve(XHR);
+			} catch (e) {
+				//模拟接口请求失败
+				reject(e);
+			}
+		}, 1000)
+	})
+};
+
+// 许可信息列表（变更）
+function apiPerList(pageNum, pageSize) {
+	return new Promise((resolve, reject)=>{
+		const XHR={
+		statusCode:200,
+		errMsg: "request:ok",
+		data:{ 
+		  "page":{"totalpage":2,"currentpage":1,"totalnum":10}, 
+		  "results":[{
+					num:'0108197803184837',
+					name:'食品药品安全许可证',
+					office:'历下区食药监局'
+				},{
+					num:'0108197803184837',
+					name:'食品药品安全许可证',
+					office:'历下区食药监局'
+				},{
+					num:'0108197803184837',
+					name:'食品药品安全许可证',
+					office:'历下区食药监局'
+				}]
+			}		
+		}
+		//延时一秒,模拟联网
+		setTimeout(function() {
+			try {
+				resolve(XHR);
+			} catch (e) {
+				//模拟接口请求失败
+				reject(e);
+			}
+		}, 1000)
+	})
+};
+
 export default{
 	apiPreList,
 	apiEstList,
 	apiModList,
 	apiNulList,
-	apiSugList
+	apiSugList,
+	apiMemList,
+	apiPerList
 }

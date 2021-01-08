@@ -4,7 +4,6 @@
 		<cu-custom class="custom-nav" bgColor="bg-gradual-blue" :isBack="true">
 		    <block slot="backText">返回</block>
 		    <block slot="content">预审-变更登记</block>
-			<view slot="right" v-if="currentNav==0&&childrenHasSave" class="ope flex align-center" @click="saveForm"><text class="icon fa fa-save" @click="saveForm"></text>保存</view>
 		</cu-custom>
 		
 		<!-- 选项卡 -->
@@ -28,7 +27,7 @@
 				</scroll-view>
 				<!-- 人员信息 -->
 				<scroll-view v-show="currentMenu==2" class="scroll-box" scroll-y>
-					人员信息
+					<info-member hideNav ref="info2"></info-member>
 				</scroll-view>
 				<!-- 联络员信息 -->
 				<scroll-view v-show="currentMenu==3" class="scroll-box" scroll-y>
@@ -36,15 +35,15 @@
 				</scroll-view>
 				<!-- 许可信息 -->
 				<scroll-view v-show="currentMenu==4" class="scroll-box" scroll-y>
-					许可信息
+					<info-permit hideNav ref="info4"></info-permit>
 				</scroll-view>
 				<!-- 授权委托 -->
 				<scroll-view v-show="currentMenu==5" class="scroll-box" scroll-y>
-					授权委托
+					<info-author hideNav ref="info5"></info-author>
 				</scroll-view>
 				<!-- 多证合一 -->
 				<scroll-view v-show="currentMenu==6" class="scroll-box" scroll-y>
-					多证合一
+					<info-licence hideNav ref="info5"></info-licence>
 				</scroll-view>
 				<!-- 附件信息 -->
 				<scroll-view v-show="currentMenu==7" class="scroll-box" scroll-y>
@@ -129,18 +128,22 @@
 	import API from "@/mock/mock.js"
 	import infoChange from '@/pages/modify/modInfo/infoChange'
 	import infoLegal from '@/pages/modify/modInfo/infoLegal'
+	import infoMember from '@/pages/modify/modInfo/infoMember'
 	import infoLiaison from '@/pages/modify/modInfo/infoLiaison'
+	import infoPermit from '@/pages/modify/modInfo/infoPermit'
+	import infoAuthor from '@/pages/modify/modInfo/infoAuthor'
+	import infoLicence from '@/pages/modify/modInfo/infoLicence'
 	import MescrollMixin from "@/components/com-mescroll-view/js/mescroll-mixins.js";
 	export default {
 		mixins: [MescrollMixin],
-		components:{infoChange,infoLegal,infoLiaison},
+		components:{infoChange,infoLegal,infoMember,infoLiaison,infoPermit,infoAuthor,infoLicence},
 		data() {
 			return {
 				enums:{
 					agree:[{value:'0',name:'同意'},{value:'1',name:'驳回'}]
 				},
 				currentNav:0,
-				currentMenu:1,
+				currentMenu:0,
 				childrenHasSave:false,
 				tabs:['企业信息','办理意见'],
 				menus:['变更事项','法定代表人','人员信息','联络员信息','许可信息','授权委托','多证合一','附件信息'],
@@ -257,10 +260,16 @@ page{height: 100%}
 			height: 100%;display: flex;flex-direction: column;
 			.scroll-box{
 				flex:1;overflow: hidden;
+				/deep/ {
+					.list{
+						padding: 10rpx 30rpx 10rpx 30rpx;
+					}
+				}
 			}
 		}
 	}
 }
+
 /* 意见填写区域 */
 .suggest-ope{
 	.form-wrap{

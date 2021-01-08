@@ -2512,6 +2512,7 @@ button.cuIcon.lg {
 /* 非编辑 */
 .com-form-container .info{
 	padding: 17rpx 0;line-height: 1.6;flex: 1;
+	min-height: 80rpx;
 }
 /* 表单嵌套对照模式*/
 .com-form-container .com-form-group-list{

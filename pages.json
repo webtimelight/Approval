@@ -171,6 +171,51 @@
             }
             
         }
+        ,{
+            "path" : "pages/modify/modInfo/infoMember",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "变更-材料-人员信息",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/modify/modInfo/infoPermit",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "变更-材料-许可信息",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/modify/modInfo/infoLicence",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "变更登记-多证合一",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/modify/modInfo/infoShare",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "变更-股东发起人（出资）",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/modify/modInfo/infoFinance",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "变更-财务负责人",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 
 	"globalStyle": {
