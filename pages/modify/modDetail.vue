@@ -35,29 +35,33 @@
 				<scroll-view v-show="currentMenu==3" class="scroll-box" scroll-y>
 					<info-share hideNav ref="info3"></info-share>
 				</scroll-view>
-				<!-- 联络员信息 -->
+				<!-- 后置审批 -->
 				<scroll-view v-show="currentMenu==4" class="scroll-box" scroll-y>
-					<info-liaison hideNav ref="info4"></info-liaison>
+					<info-after hideNav ref="info4"></info-after>
+				</scroll-view>
+				<!-- 联络员信息 -->
+				<scroll-view v-show="currentMenu==5" class="scroll-box" scroll-y>
+					<info-liaison hideNav ref="info5"></info-liaison>
 				</scroll-view>
 				<!-- 财务发起人 -->
-				<scroll-view v-show="currentMenu==5" class="scroll-box" scroll-y>
-					<info-finance hideNav ref="info5"></info-finance>
+				<scroll-view v-show="currentMenu==6" class="scroll-box" scroll-y>
+					<info-finance hideNav ref="info6"></info-finance>
 				</scroll-view>
 				<!-- 授权委托 -->
-				<scroll-view v-show="currentMenu==6" class="scroll-box" scroll-y>
-					<info-author hideNav ref="info6"></info-author>
+				<scroll-view v-show="currentMenu==7" class="scroll-box" scroll-y>
+					<info-author hideNav ref="info7"></info-author>
 				</scroll-view>
 				<!-- 多证合一 -->
-				<scroll-view v-show="currentMenu==7" class="scroll-box" scroll-y>
-					<info-licence hideNav ref="info7"></info-licence>
+				<scroll-view v-show="currentMenu==8" class="scroll-box" scroll-y>
+					<info-licence hideNav ref="info8"></info-licence>
 				</scroll-view>
 				<!-- 提交材料 -->
-				<scroll-view v-show="currentMenu==8" class="scroll-box" scroll-y>
-					<info-stuff hideNav ref="info8"></info-stuff>
+				<scroll-view v-show="currentMenu==9" class="scroll-box" scroll-y>
+					<info-stuff hideNav ref="info9"></info-stuff>
 				</scroll-view>
 				<!-- 人员实名认证 -->
-				<scroll-view v-show="currentMenu==9" class="scroll-box" scroll-y>
-					<info-ident hideNav ref="info9"></info-ident>
+				<scroll-view v-show="currentMenu==10" class="scroll-box" scroll-y>
+					<info-ident hideNav ref="info10"></info-ident>
 				</scroll-view>
 			</view>
 			<!-- ============办理意见============ -->
@@ -140,6 +144,7 @@
 	import infoLegal from '@/pages/modify/modInfo/infoLegal'   //法定代表人
 	import infoMember from '@/pages/modify/modInfo/infoMember'  //董事、监事、经理信息
 	import infoShare from '@/pages/modify/modInfo/infoShare'  //股东（发起人）
+	import infoAfter from '@/pages/modify/modInfo/infoAfter'  //后置审批
 	import infoLiaison from '@/pages/modify/modInfo/infoLiaison'  //联络员信息
 	import infoFinance from '@/pages/modify/modInfo/infoFinance'  //财务负责人
 	import infoAuthor from '@/pages/modify/modInfo/infoAuthor'  //授权委托
@@ -149,7 +154,7 @@
 	import MescrollMixin from "@/components/com-mescroll-view/js/mescroll-mixins.js";
 	export default {
 		mixins: [MescrollMixin],
-		components:{infoChange,infoLegal,infoMember,infoShare,infoLiaison,infoFinance,infoAuthor,infoLicence,infoStuff,infoIdent},
+		components:{infoChange,infoLegal,infoMember,infoShare,infoAfter,infoLiaison,infoFinance,infoAuthor,infoLicence,infoStuff,infoIdent},
 		data() {
 			return {
 				enums:{
@@ -159,7 +164,7 @@
 				currentMenu:1,
 				childrenHasSave:false,
 				tabs:['申请书','办理意见'],
-				menus:['变更事项','法定代表人','董事、监事、经理','股东（发起人）','联络员','财务负责人','授权委托','多证合一','提交材料','人员实名认证'],
+				menus:['变更事项','法定代表人','董事、监事、经理','股东（发起人）','后置审批','联络员','财务负责人','授权委托','多证合一','提交材料','人员实名认证'],
 				picker: ['同意', '驳回'],
 				infoSuggest:{
 					member:'王晓静',

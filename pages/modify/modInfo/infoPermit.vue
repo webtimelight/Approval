@@ -3,7 +3,7 @@
 		<!-- 导航栏 -->
 		<cu-custom v-if="!hideNav" class="custom-nav" bgColor="bg-gradual-blue" :isBack="true">
 		    <block slot="backText">返回</block>
-		    <block slot="content">变更-材料-许可信息</block>
+		    <block slot="content">变更-许可信息</block>
 		</cu-custom>
 		<!-- 内容区域 -->
 		<view class="main-wrap">

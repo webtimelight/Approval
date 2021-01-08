@@ -11,7 +11,7 @@
 			<com-quick-skeleton :show="skeletonShow" bgColor="#f6f6f6" loading="flush" template="detail" :style="{'top':hideNav?'':CustomBar + 'px'}" ></com-quick-skeleton>
 			<!-- 内容区域 -->
 			<view class="com-form-container">
-				<com-form ref="form" :label-style="{'flex-basis':'240rpx'}">
+				<com-form ref="form" :label-style="{'flex-basis':'220rpx'}">
 					<com-form-item label="姓名">
 						<view class="info">{{legal.name}}</view>
 					</com-form-item>
@@ -42,14 +42,14 @@
 					<com-form-item label="任命单位">
 						<view class="info">{{legal.company}}</view>
 					</com-form-item>
-					<com-form-item label="任职日期" label-position="top">
-						<view class="picker-group flex align-center justify-between">
-							<view class="picker flex-sub">
-								<text class="padding-right">自:</text>
+					<com-form-item label="任职日期">
+						<view class="flex flex-sub align-center">
+							<view class="">
+								<text class="padding-right-xs">自</text>
 								<text class="info">{{legal.startDate}}</text>
 							</view>
-							<view class="picker flex-sub">
-								<text class="padding-right">至:</text>
+							<view class="">
+								<text class="padding-right-xs padding-left-xs">至</text>
 								<text class="info">{{legal.endDate}}</text>
 							</view>
 						</view>
