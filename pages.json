@@ -345,6 +345,42 @@
 				"navigationBarTitleText": "注销登记-授权委托",
 				"enablePullDownRefresh": false
 			}
+		},
+		 {
+			"path" : "pages/preApproval/preDetailEst/estInfo/infoBase",
+			"style" :                                                                                    
+			{
+				"navigationBarTitleText": "预审-设立-基本信息",
+				"enablePullDownRefresh": false
+			}
+			
+		}
+		,{
+			"path" : "pages/preApproval/preDetailEst/estInfo/infoLegal",
+			"style" :                                                                                    
+			{
+				"navigationBarTitleText": "预审-设立-法定代表人",
+				"enablePullDownRefresh": false
+			}
+			
+		}
+		,{
+			"path" : "pages/preApproval/preDetailEst/estInfo/infoManagement",
+			"style" :                                                                                    
+			{
+				"navigationBarTitleText": "预审-设立-董监事会成员",
+				"enablePullDownRefresh": false
+			}
+			
+		}
+		,{
+			"path" : "pages/preApproval/preDetailEst/estInfo/infoShare",
+			"style" :                                                                                    
+			{
+				"navigationBarTitleText": "预审-设立-股东（发起人）",
+				"enablePullDownRefresh": false
+			}
+			
 		}
     ],
     "globalStyle": {

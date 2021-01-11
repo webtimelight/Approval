@@ -3,7 +3,7 @@
 		<!-- 导航栏 -->
 		<cu-custom v-if="!hideNav" class="custom-nav" bgColor="bg-gradual-blue" :isBack="true">
 		    <block slot="backText">返回</block>
-		    <block slot="content">设立-提交材料</block>
+		    <block slot="content">预审-设立-材料-董监事会成员</block>
 		</cu-custom>
 		<!-- 主体区域 -->
 		<view class="main-wrap">
@@ -12,15 +12,14 @@
 			<!-- 内容区域 -->
 				<view class="list">
 					<view class="list-item" v-for="(v,i) in list" :key="i" style="margin: 0 0 30rpx 0;">
-						<view class="header justify-between align-center solid-bottom">
-							<text class="cuIcon-title text-blue"></text>
-							<text class="text-blue">文件标题：</text>{{v.title}}
+						<view class="header flex justify-between align-center solid-bottom">
+							<view class="">姓名：{{v.name}}</view>
 						</view>
 						<view class="middle solid-bottom">
-							<view class="item text-gray">文件页数：{{v.page}}</view>
-							<view class="item text-gray">文件起始页：{{v.homePage}}</view>
-							<view class="item text-gray">文件结束页：{{v.endPage}}</view>
-							<view class="item text-gray flex">是否提交：{{v.whether}}</view>
+							<view class="item text-gray">职务：{{v.duty}}</view>
+							<view class="item text-gray">身份证件类型：{{v.certificateType}}</view>
+							<view class="item text-gray">证件号码：{{v.idNumber}}</view>
+							<view class="item text-gray">移动电话：{{v.phoneNumber}}</view>
 						</view>
 					</view>
 				</view>
@@ -43,35 +42,21 @@
 		data() {
 			return {
 				skeletonShow:false,
-				hide:true,
 				// 基本信息
 				list:[
 					{	
-						title:'《公司登记（备案）申请书》',
-						page:'',
-						homePage:'',
-						endPage:'',
-						whether:'是',
+						name:'刘长青',
+						certificateType:'中华人民共和国居民身份证',
+						idNumber:'370923197012291554',
+						duty:'执行董事兼总经理',
+						phoneNumber:'18665652548',
 					},{
-						title:'《指定代表或者共同委托代理人授权委托书》及指定代表或委托代理人的身份证件复印件。',
-						page:'',
-						homePage:'',
-						endPage:'',
-						whether:'是',
-					},{
-						title:'住所使用证明',
-						page:'',
-						homePage:'',
-						endPage:'',
-						whether:'是',
-					},{
-						title:'《企业名称预先核准通知书》',
-						page:'',
-						homePage:'',
-						endPage:'',
-						whether:'是',
+						name:'周敏',
+						certificateType:'中华人民共和国居民身份证',
+						idNumber:'370124197401063013',
+						duty:'监事',
+						phoneNumber:'18662123621'
 					}
-					
 				]
 				
 			}
@@ -79,9 +64,8 @@
 		mounted () {
 			
 		},
-		
 		methods: {
-			
+		
 		}
 	}
 </script>

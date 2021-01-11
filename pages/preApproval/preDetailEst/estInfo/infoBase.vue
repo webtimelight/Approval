@@ -3,7 +3,7 @@
 		<!-- 导航栏 -->
 		<cu-custom v-if="!hideNav" class="custom-nav" bgColor="bg-gradual-blue" :isBack="true">
 		    <block slot="backText">返回</block>
-		    <block slot="content">设立材料-基本信息</block>
+		    <block slot="content">预审-设立-基本信息</block>
 		</cu-custom>
 		<!-- 主体区域 -->
 		<view class="main-wrap">
@@ -117,39 +117,8 @@
 						<com-form-item label="属地工商所">
 							<view>{{dataBase.commerceAddress }}</view>
 						</com-form-item>
-						<view class="cu-bar">
-							<view class="action">
-								<text class="cuIcon-title text-blue"></text>
-								<text class="text-blue">补充信息:</text>
-							</view>
-						</view>
-						</com-form-item>
-						<com-form-item label="特定经营行业">
-							<view>{{dataBase.specificBusinessLine }}</view>
-						</com-form-item>
-						<com-form-item label="特定经营地域">
-							<view>{{dataBase.specificAddress }}</view>
-						</com-form-item>
-						<com-form-item label="城乡标志">
-							<view>{{dataBase.townSign }}</view>
-						</com-form-item>
-						<com-form-item label="是否扶持户">
-							<view>{{dataBase.supportFamily }}</view>
-						</com-form-item>
-						<com-form-item label="是否经纪人">
-							<view>否</view>
-						</com-form-item>
-						<com-form-item label="是否市场开办者">
-							<view>否</view>
-						</com-form-item>
-						<com-form-item label="是否广告企业">
-							<view>否</view>
-						</com-form-item>
-						<com-form-item label="是否农资市场">
-							<view>否</view>
-						</com-form-item>
-						<com-form-item label="备注">
-							<view>{{dataBase.remark }}</view>
+						<com-form-item label="所属管片">
+							<view>{{dataBase.commerceAddress1 }}</view>
 						</com-form-item>
 				</com-form>
 			</view>
@@ -182,8 +151,8 @@
 					isParCompanyTwo:'0',
 					cityValue: ["370000","370100","370102"],//默认值
 					cityLabel:'',
-					address:'后宰门街36-1号',
-					address1:'济南市-历下区',
+					address:'东风街道36号',
+					address1:'山东省-济南市-历下区',
 					addressDetail:'济南市历下区后宰门街36-1号',
 					/* 法律文书 */
 					cityValue2:[],//默认值
@@ -209,11 +178,7 @@
 					registrationAuthority:'济南市市场监督管理局',//登记机关
 					jurisdictionInstitution:'济南市历下区市场监督管理局',//管辖机关
 					commerceAddress:'文化东路市场监督管理所',//属地工商所
-					specificBusinessLine:'0110种植养殖类',//特定经营行业
-					specificAddress:'孵化园',//特定经营地域
-					townSign:'城市',//城乡标志
-					supportFamily:'否',//是否扶持户
-					remark:'备注内容',//备注内容
+					commerceAddress1:'文化东路市场监督管理所',//所属管片
 				},
 
 			

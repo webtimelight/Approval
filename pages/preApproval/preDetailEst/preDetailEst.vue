@@ -25,11 +25,11 @@
 				</scroll-view>
 				<!-- 法定代表人 -->
 				<scroll-view v-show="currentMenu==1" class="scroll-box" scroll-y>
-					<view ref="info1">法定代表人信息</view>
+					<info-legal hideNav ref="info1"></info-legal>
 				</scroll-view>
 				<!-- 董监事会成员 -->
 				<scroll-view v-show="currentMenu==2" class="scroll-box" scroll-y>
-					董监事会成员
+					<info-management hideNav ref="info2"></info-management>
 				</scroll-view>
 				<!-- 股东（发起人） -->
 				<scroll-view v-show="currentMenu==3" class="scroll-box" scroll-y>
@@ -134,11 +134,14 @@
 <script>
 	import API from "@/mock/mock.js"
 	
-	import InfoBase from '@/pages/establish/estInfo/infoBase'
+	import InfoBase from '@/pages/preApproval/preDetailEst/estInfo/infoBase'
+	import infoLegal from '@/pages/preApproval/preDetailEst/estInfo/infoLegal'
+	import infoManagement from '@/pages/preApproval/preDetailEst/estInfo/infoManagement'
+	
 	import MescrollMixin from "@/components/com-mescroll-view/js/mescroll-mixins.js";
 	export default {
 		mixins: [MescrollMixin],
-		components:{InfoBase},
+		components:{InfoBase,infoLegal,infoManagement},
 		data() {
 			return {
 				currentNav:0,
