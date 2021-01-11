@@ -1,5 +1,5 @@
 {
-    "name" : "jngs_xzsp",
+    "name" : "济南工商行政许可",
     "appid" : "__UNI__D70C0BB",
     "description" : "",
     "versionName" : "1.0.0",
@@ -38,7 +38,7 @@
             },
             "ios" : {},
             "sdkConfigs" : {
-                "ad" : null
+                "ad" : {}
             }
         }
     },
