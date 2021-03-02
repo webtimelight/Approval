@@ -88,7 +88,6 @@
 		data() {
 			return {
 				scrollLeft:0,
-				wrapWidth:0,
 				showMore:false
 			}
 		},
@@ -168,36 +167,41 @@
 			closeMenu() {
 				this.$refs.popup.close();
 			},
-			//tab激活定位
+			//tab激活定位start
 			refreshPosition() {
-			  this.$nextTick(() => {
-			    const query = () => uni.createSelectorQuery().in(this);
+				const query = () => uni.createSelectorQuery().in(this);
 				let contentWidth = 0;
-			    query().select('.tabs-wrap').boundingClientRect().exec(([viewElem]) => {
-			      const viewWidth = viewElem.width;
-			      let offsetLeft = 0;
-			      let curNavWidth = 0;
-			      query().selectAll('.tab-item').boundingClientRect().exec(([list]) => {
-			        list.forEach((item, index) => {
-			          if (index <= this.value) {
-			            curNavWidth = item.width;
-			            offsetLeft += item.width;
-			          }
-			          contentWidth += item.width;
-			        });
-			        offsetLeft -= curNavWidth;
-			        this.scrollLeft = Math.min(Math.max(contentWidth - viewWidth, 0), Math.max(0, offsetLeft - (viewWidth - curNavWidth) / 2));
-			      });
-			    });
-				/* 如果菜单宽度大于容器宽度,显示更多按钮 */
-				query().select('.scroll-tabs').boundingClientRect().exec(data=>{
-					this.wrapWidth=data[0].width
+				query().select('.tabs-wrap').boundingClientRect().exec(([viewElem]) => {
+					const viewWidth = viewElem.width;
+					let offsetLeft = 0;
+					let curNavWidth = 0;
+					/* out */
+					query().selectAll('.tab-item').boundingClientRect().exec(([list]) => {
+						list.forEach((item, index) => {
+							if (index <= this.value) {
+							curNavWidth = item.width;
+							offsetLeft += item.width;
+							}
+							contentWidth += item.width;
+						})
+						offsetLeft -= curNavWidth;
+						this.scrollLeft = Math.min(Math.max(contentWidth - viewWidth, 0), Math.max(0, offsetLeft - (viewWidth - curNavWidth) / 2));
+
+						/* in 如果菜单宽度大于容器宽度,显示更多按钮 */
+						query().select('.scroll-tabs').boundingClientRect().exec(data=>{
+							let wrapWidth=data[0].width
+							if(contentWidth>wrapWidth){
+								this.showMore=true
+							}else{
+								this.showMore=false
+							}
+						})
+						/* in end */
+					})
+					/* out end */
 				})
-				if(contentWidth>this.wrapWidth){
-					this.showMore=true
-				};
-			  });
 			}
+			//tab激活定位end
 		}
 	}
 </script>
@@ -226,6 +230,7 @@
 			flex: 1;
 			overflow: hidden;
 			.tab-list{
+				display: flex;
 				white-space: nowrap;
 				.tab-item {
 					width: auto;
@@ -234,7 +239,7 @@
 					display: inline-block;
 					.item-text {
 						padding: 0 30rpx;
-						display: block;
+						display: inline-block;
 						line-height: 86rpx;
 						font-size: 28rpx;
 					}

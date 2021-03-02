@@ -31,10 +31,10 @@ const request=(options)=>{
 							}
 						})
 					}else{
-						uni.showToast({
+						/* uni.showToast({
 							title:"获取内容失败，请检查网络",
 							icon: 'none'
-						});
+						}); */
 						return
 					}
 				}
